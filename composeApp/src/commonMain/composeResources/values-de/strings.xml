@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App.kt-->
+    <string name="studyTab">Studium</string>
+    <string name="canteenTab">Mensa</string>
+    <string name="mapTab">Karte</string>
+    <string name="booksTab">Bücher</string>
+    <string name="settingsTab">Optionen</string>
+
+    <!--StudyScreen-->
+    <string name="homeTabName">Studium</string>
+    <string name="tucanFeatures">TUCaN Features</string>
+    <string name="2fa">2FA</string>
+    <string name="2faCodes">2FA Codes</string>
+    <string name="frequentlyUsed">Oft verwendet</string>
+    <string name="identity">Identität</string>
+    <string name="studentID">Studentenausweis</string>
+    <string name="tucan">TUCaN</string>
+    <string name="personalData">Meine Daten</string>
+    <string name="documents">Dokumente</string>
+    <string name="electives">Wahlbereiche</string>
+    <string name="messages">Mitteilungen</string>
+    <string name="forms">Anträge</string>
+    <string name="application">Bewerbung</string>
+    <string name="help">Hilfe</string>
+    <string name="comingInFutureUpdate">Kommt in einem\nzukünftigen Update</string>
+    <string name="externalServices">Externe Dienste</string>
+    <string name="uniSport">Uni-Sport</string>
+    <string name="deutschlandticket">Deutschlandticket</string>
+    <string name="identityManagement">Identitätsmanagement</string>
+    <string name="tu4you">TU4You</string>
+    <string name="news">Aktuelles</string>
+    <string name="comingSoon">Bald verfügbar</string>
+    <string name="upNext">Als Nächstes</string>
+    <string name="loadingTodayTimeSlots">Lade heutigen Termine</string>
+    <string name="loggingInTU">Anmeldung mit TU ID</string>
+    <string name="tucanFailClickMoreInfo">TUCaN Login ist fehlgeschlagen.\nKlicke für mehr Info</string>
+    <string name="tucanFail">TUCaN Login ist fehlgeschlagen</string>
+    <string name="retry">Erneut versuchen</string>
+    <string name="loginAgain">Erneut anmelden</string>
+    <string name="tucanFailHeading">Anmeldung mit TUCaN fehlgeschlagen</string>
+    <string name="tucanFailLine">Probiere den Login zuerst nochmal.\n\nWenn das nicht funktioniert hat, probiere folgendes:</string>
+    <string name="tucanFailLine1">Öffne deinen Browser (nicht im Privaten/Incognito Modus) und melde dich bei TUCaN an</string>
+    <string name="tucanFailLine2">Melde dich erneut ab</string>
+    <string name="tucanFailLine3">Probiere den “Erneut versuchen” Knopf nochmal</string>
+    <string name="tucanFailLine4">\nWenn das auch nicht funktioniert hat, macht TUCaN komische Dinge. Du kannst nur warten und es später probieren.</string>
+    <string name="courses">Kurse</string>
+    <string name="timetable">Stundenplan</string>
+    <string name="exams">Klausuren</string>
+    <string name="sectionRequiresTU">Dieser Abschnitt bedarf eines TU Logins</string>
+    <string name="loginWithTU">Anmelden mit TU ID</string>
+
+    <!--SettingsScreen-->
+    <string name="settings">Einstellungen</string>
+    <string name="foodSettings">Essen</string>
+    <string name="foodTypes">Kategorien</string>
+    <string name="allergies">Allergien</string>
+    <string name="lastViewedCanteen">Zuletzt betrachtete Mensa</string>
+    <string name="lastViewed">Zuletzt betrachtet</string>
+    <string name="student">Student</string>
+    <string name="guest">Gast</string>
+    <string name="german">Deutsch</string>
+    <string name="english">Englisch</string>
+    <string name="status">Status</string>
+    <string name="menuLanguage">Sprache für Gerichte</string>
+    <string name="defaultLocation">Standard Location</string>
+    <string name="loginAs2faBroken">%1$s (2FA Login, TUCaN kaputt)</string>
+    <string name="logout">Abmelden</string>
+    <string name="loginAs2fa">Angemeldet als: %1$s (2FA Login)</string>
+    <string name="loginAsSso">Angemeldet als: %1$s (SSO Login)</string>
+    <string name="loginAsDemoAccount">Angemeldet als Demo Nutzer</string>
+    <string name="loginWithSso">Anmelden mit SSO</string>
+    <string name="loginWithUsernamePassword">Anmelden mit Nutzername/Passwort</string>
+    <string name="loginWithDemo">Login für Demo Modus</string>
+    <string name="uiType">UI Typ</string>
+    <string name="switchBackNativeUI">Wechsel zurück zu Apple UI</string>
+    <string name="error">Fehler</string>
+    <string name="confirmLogout">Bestätige Anmeldung</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="remove2faSecretQ">2FA Code entfernen?</string>
+    <string name="2faRemovalWarning">ACHTUNG\n2FA wird nicht funktionieren, bis du einen neuen TOTP Code hinzufügst\n\nWähle \“Behalten\”, wenn du dich nur abmelden willst.</string>
+    <string name="keep">Behalten</string>
+    <string name="remove">Entfernen</string>
+    <string name="unknown">Unbekannt</string>
+
+    <!--MapScreen-->
+    <string name="search">Search</string>
+
+    <!--FoodScreen-->
+    <string name="mon">Mo.</string>
+    <string name="tue">Di.</string>
+    <string name="wed">Mi.</string>
+    <string name="thu">Do.</string>
+    <string name="fri">Fr.</string>
+    <string name="selectCanteen">Wähle deine Mensa</string>
+    <plurals name="hiddenMenuItemsMsg">
+        <item quantity="one">Aufgrund deiner Filter wurde %1$d Gericht ausgeblendet</item>
+        <item quantity="other">Aufgrund deiner Filter wurden %1$d Gerichte ausgeblendet</item>
+    </plurals>
+    <string name="showAll">Alle anzeigen</string>
+    <string name="noImageFound">Kein Bild gefunden</string>
+
+    <!--TotpCodeScreen-->
+    <string name="2faCode">2FA Code</string>
+    <string name="codeFor2faOption">Code für 2FA Option "TUPlan"</string>
+    <string name="nextCode">Nächster Code: %1$s</string>
+
+    <!--TimetableScreen-->
+    <string name="list">Liste</string>
+    <string name="week">Woche</string>
+    <string name="dates">Termine</string>
+    <string name="noEventsToday">Keine Termine heute</string>
+
+    <!--StudentIDScreen-->
+    <string name="identityCards">Ausweise</string>
+    <string name="studentIDForSemester">Studentenausweis %1$s</string>
+    <string name="firstName">Vorname</string>
+    <string name="lastName">Nachname</string>
+    <string name="birthdate">Geburtstag</string>
+    <string name="matrNumber">Matr. Nummer</string>
+    <string name="validUntil">Gültig bis</string>
+    <string name="validCaps">GÜLTIG</string>
+    <string name="libraryCard">Bibliotheksausweis</string>
+    <string name="errorLoadingBarcode">Konnte Barcode nicht laden</string>
+    <string name="invalidI25Input">Ungültiger I-25 Input</string>
+    <string name="cardNumberIs">Kartennummer: %1$s</string>
+    <string name="europeanStudentIdentifier">Europäischer Student Identifier</string>
+
+    <!--ExamRegisterScreen-->
+    <string name="examRegistration">Klausuranmeldung</string>
+    <string name="deselectAll">Alle Abwählen</string>
+    <string name="select">Auswählen</string>
+    <string name="examRegistrations">Klausuranmeldungen</string>
+    <string name="confirmRegistration">Bestätige Anmeldung</string>
+    <string name="confirmUnregistration">Bestätige Abmeldung</string>
+    <string name="register_actionWord">anzumelden</string>
+    <string name="unregister_actionWord">abzumelden</string>
+    <string name="examModifyMsgSingle">Du bist dabei, dich %1$s für:\n\n%2$s %3$s\n%4$s</string>
+    <string name="register">Anmelden</string>
+    <string name="unregister">Abmelden</string>
+    <string name="examModifyMsgMultiple">Du bist dabei, dich %1$s für:%2$s</string>
+
+    <!--ExamRegDetailScreen-->
+    <string name="details">Details</string>
+    <string name="semester">Semester</string>
+    <string name="course">Kurse</string>
+    <string name="examType">Klausurtyp</string>
+    <string name="registrationPeriod">Anmeldezeitraum</string>
+    <string name="cancellationPeriod">Abmeldezeitraum</string>
+    <string name="examinationDate">Klausurtermin</string>
+    <string name="examiners">Prüfer</string>
+    <string name="rooms">Räume</string>
+
+    <!--ExamDetailScreen-->
+    <string name="assessment">Benotung</string>
+    <string name="gradeReport">Notenspiegel</string>
+    <string name="examsSpace">Klausuren </string>
+    <string name="averageSpace">Durchschnitt </string>
+    <string name="passWithPercent">Best.\n%1$d%</string>
+    <string name="failWithPercent">N.B.\n%1$d%</string>
+
+    <!--CourseDetailScreen-->
+    <string name="info">Info</string>
+    <string name="groups">Gruppen</string>
+    <string name="deadlines">Fristen</string>
+    <string name="phaseWithStr">Phase: %1$s</string>
+    <string name="blockWithStr">Block: %1$s</string>
+    <string name="startWithStr">Start: %1$s</string>
+    <string name="endRegistrationWithStr">Ende Anmeldung: %1$s</string>
+    <string name="endCancellationWithStr">Ende Abmeldung: %1$s</string>
+    <string name="deadlineForAuditWithStr">Ende Hörer: %1$s</string>
+    <string name="group">Gruppe</string>
+    <string name="plenum">Plenum</string>
+    <string name="courseDetailsNotFound">Dieser Kurs ist nicht im aktuellen Semester.\nUm Bandbreite zu sparen holt die App aktuell nicht seine Details.</string>
+
+    <!--TULoginScreen-->
+    <string name="loginFailed">Anmeldung fehlgeschlagen</string>
+    <string name="ok">Ok</string>
+    <string name="username">Nutzername</string>
+    <string name="password">Passwort</string>
+    <string name="accountDetailsUsageInfo">Deine Nutzerdaten werden nur zum Login mit der TUDa verwendet. Sie werden local gespeichert und mit niemandem sonst geteilt. Auch nicht mit TUPlan Entwicklern.\nErfahre mehr… (noch kein Link)</string>
+    <string name="login">Anmelden</string>
+    <string name="continueWith2faQ">Weiter mit 2FA?</string>
+    <string name="noLoginAndBenefits">Kein Login\nMensa und Karten</string>
+    <string name="basicLoginAndBenefits">Basic Login\n+ Timetable, Courses, Exams, etc.</string>
+    <string name="2faLoginAndBenefits">2FA Login\n+ Studentenausweise</string>
+    <string name="useBasicLogin">Nutze Basic Login</string>
+    <string name="setup2faForTUPlan">2FA für TUPlan einrichten</string>
+    <string name="useSeparateDeviceMsg">Wenn möglich, nutze ein separates Gerät und befolge mit diesem folgende Schritte:</string>
+    <string name="open2faManagementAndLogin">Öffne 2FA Management und melde dich an\n</string>
+    <string name="enrollTokenMsg1">Erstelle einen neuen </string>
+    <string name="enrollTokenMsg2"> Token mit einer Beschreibung, die </string>
+    <string name="enrollTokenMsg3"> enthält</string>
+    <string name="youShouldNowSeeQRCode">Es sollte ein QR Code sichtbar sein,\nbehalte die Webseite offen</string>
+    <string name="youCanNowPressContinueBelow">Du kannst nun weiter klicken</string>
+    <string name="_continue">Weiter</string>
+    <string name="scanQRCode">QR Code scannen</string>
+    <string name="orEnterCodeManually">Oder gebe code manuell ein</string>
+    <string name="totpCode">TOTP Code</string>
+    <string name="pleaseEnterThisCodeOnTheWebpage">Gebe diesen Code auf der Webseite ein</string>
+    <string name="onlyPressThisOncePageSays">Nur anklicken, sobald die Seite sagt, dass der Token erfolgreich verifiziert wurde</string>
+
+    <!--FoodTypesPicker-->
+    <string name="whatDoYouLikeToEatQ">Was isst du gerne?</string>
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarisch</string>
+    <string name="pork">Schwein</string>
+    <string name="beef">Rind</string>
+    <string name="poultry">Geflügel</string>
+    <string name="venison">Wild</string>
+
+    <!--AllergiesScreen-->
+    <string name="wheat">Weizen</string>
+    <string name="spelt">Dinkel</string>
+    <string name="rye">Roggen</string>
+    <string name="barley">Gerste</string>
+    <string name="oats">Hafer</string>
+    <string name="crustaceansAndProducts">Krebstiere und Krebstiererzeugnisse</string>
+    <string name="eggsAndProducts">Eier und Eiererzeugnisse</string>
+    <string name="fishAndProducts">Fisch und Fischerzeugnisse</string>
+    <string name="peanutsAndProducts">Erdnüsse und Erdnusserzeugnisse</string>
+    <string name="soybeans">Soja und Sojaerzeugnisse</string>
+    <string name="milkAndProducts">Milch und Milcherzeugnisse</string>
+    <string name="almonds">Mandeln</string>
+    <string name="hazelnuts">Hasselnüsse</string>
+    <string name="walnuts">Walnüsse</string>
+    <string name="cashewNuts">Cashewnüsse</string>
+    <string name="pecanNuts">Pekannüsse</string>
+    <string name="brazilNuts">Paranüsse</string>
+    <string name="pistachioNuts">Pistazien</string>
+    <string name="macadamiaNuts">Macadamianüsse</string>
+    <string name="celeryAndProducts">Sellerie und Sellerieerzeugnisse</string>
+    <string name="mustardAndProducts">Senf und Senferzeugnisse</string>
+    <string name="sesameAndProducts">Sesamsamen und Sesamsamenerzeugnisse</string>
+    <string name="sulfurDioxidesAndSulfides">Schwefeldioxid und Sulfite</string>
+    <string name="lupines">Lupine und Lupinenerzeugnisse</string>
+    <string name="molluscs">Weichtiere (Mollusken)</string>
+    <string name="whatAreYouAllergicToQ">Gegen was bist du allergisch?</string>
+
+    <!--MenuItemDetailScreen-->
+    <string name="glutenContainingGrains">Glutenhaltiges Getreide</string>
+    <string name="nuts">Schalenfrüchte</string>
+    <string name="foodColoring">Lebensmittelfarbe</string>
+    <string name="preservatives">Konservierungsstoffe</string>
+    <string name="antioxidants">Antioxidationsmittel</string>
+    <string name="flavourEnhancer">Geschmacksverstärker</string>
+    <string name="sulfides">Geschwefelt</string>
+    <string name="blackened">Geschwärzt</string>
+    <string name="waxed">Gewachst</string>
+    <string name="phosphates">Phosphat</string>
+    <string name="sweeteners">Süßungsmittel</string>
+    <string name="phenylalanine">Phenylalaninquelle</string>
+    <string name="noAllergicsOrAdditivesListed">Keine Allergene oder Zusatzstoffe gelistet</string>
+    <string name="allergens">Allergene</string>
+    <string name="additives">Zusatzstoffe</string>
+    <string name="feedback">Feedback</string>
+    <string name="tasteFeedbackQuestion">Wie hat's dir geschmeckt?</string>
+    <string name="priceFeedbackQuestion">War der Preis für dich angemessen?</string>
+    <string name="textFeedbackMsg">Dir liegt noch etwas anderes auf dem Herzen? Nur zu! Wir freuen uns über jedes Feedback.</string>
+    <string name="numberCharactersRemaining">Verbleibende Zeichen: %1$d</string>
+    <string name="sendFeedback">Feedback senden</string>
+    <string name="incompleteFeedback">Feedback unvollständig</string>
+    <string name="feedbackNeedsTastePriceMsg">Feedback kann nur gesendet werden, wenn Geschmack und Preis bewertet wurden.</string>
+    <string name="discardFeedbackQ">Feedback verwerfen?</string>
+    <string name="unsentFeedbackMsg">Du bist dabei zur Übersicht zurückzukehren, hast aber dein Feedback nicht abgesendet.</string>
+    <string name="keepEditing">Weiter bearbeiten</string>
+    <string name="discardFeedback">Feedback verwerfen</string>
+
+    <!--FoodExtras-->
+    <string name="overview">Übersicht</string>
+    <string name="balance">Guthaben</string>
+    <string name="dateAtTime">(%1$s um %2$s Uhr)</string>
+    <string name="scanCard">Karte scannen</string>
+    <string name="lastChargeIs">Letzte Abbuchung: %1$s€</string>
+    <string name="information">Information</string>
+    <string name="locations">Standorte</string>
+    <string name="waitingForCard">Warte auf Karte</string>
+    <string name="holdCardNearMsg">Bringe deine Athene-Karte für den Scan ans Handy.</string>
+    <string name="bistros">Bistros</string>
+    <string name="coffeeBars">Kaffeebars</string>
+    <string name="beerGarden">Biergarten</string>
+    <string name="canteens">Mensen</string>
+    <string name="openingHours">Öffnungszeiten</string>
+
+    <!--TULoginButtonController-->
+    <string name="2faFailAndWaitMsg">2FA konnte nicht aktiviert werden.\nWarte 30s und probiere es dann erneut.\nNutzername und Passwort sind richtig</string>
+    <string name="usernameOrPasswordRejectedMsg">Nutzername oder Passwort wurde nicht angenommen</string>
+    <string name="unknownErrorMsg">Ein unbekannter Fehler ist aufgetreten.\nEs könnte an deiner Netzverbindung liegen.\nNutzername und Passwort sind wahrscheinlich korrekt.</string>
+    <string name="webRequestFailedWithError">Anfrage ist fehlgeschlagen mit Error </string>
+    <string name="resetTotpSecret">TOTP Code zurücksetzen</string>
+    <string name="enterLoginDetails">Login Daten eingeben</string>
+</resources>

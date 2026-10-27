@@ -1,0 +1,3426 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "shouldTranslate" : false
+    },
+    "\nIf this also didn't work, TUCaN is doing something weird. You can only wait and try again later." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nWenn das auch nicht funktioniert hat, macht TUCaN komische Dinge. Du kannst nur warten und es später probieren."
+          }
+        }
+      }
+    },
+    " " : {
+      "shouldTranslate" : false
+    },
+    "  1." : {
+      "shouldTranslate" : false
+    },
+    "  2." : {
+      "shouldTranslate" : false
+    },
+    "  3." : {
+      "shouldTranslate" : false
+    },
+    " Ø %@ (%d)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : " Ø %1$@ (%2$d)"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    " Ø 0 (0)" : {
+      "shouldTranslate" : false
+    },
+    "_" : {
+      "shouldTranslate" : false
+    },
+    "-" : {
+      "shouldTranslate" : false
+    },
+    "." : {
+      "shouldTranslate" : false
+    },
+    "(%@ at %@)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%1$@ um %2$@ Uhr)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(%1$@ at %2$@)"
+          }
+        }
+      }
+    },
+    "**WARNING**\nYou won't be able to use 2FA until you add another TOTP Secret\n\nSelect \"Keep\" if you only want to log out." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**ACHTUNG**\n2FA wird nicht funktionieren, bis du einen neuen TOTP Code hinzufügst\n\nWähle “Behalten”, wenn du dich nur abmelden willst."
+          }
+        }
+      }
+    },
+    "%@" : {
+      "shouldTranslate" : false
+    },
+    "%@\n%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@\n%2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$@)"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@ (2FA Login, TUCaN broken)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (2FA Login, TUCaN kaputt)"
+          }
+        }
+      }
+    },
+    "%@-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@-%2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@,\n%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@,\n%2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@, %@-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@-%3$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$lld"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%@€" : {
+      "shouldTranslate" : false
+    },
+    "%lld" : {
+      "shouldTranslate" : false
+    },
+    "%lld (%lld%%)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld (%2$lld%%)"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "%lld characters remaining" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbleibende Zeichen: %lld"
+          }
+        }
+      }
+    },
+    "2FA" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA"
+          }
+        }
+      }
+    },
+    "2FA Code" : {
+      "shouldTranslate" : false
+    },
+    "2FA Codes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA Codes"
+          }
+        }
+      }
+    },
+    "2FA couldn't be completed.\nWait 30s then try again\nUsername and password are correct" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA konnte nicht aktiviert werden.\nWarte 30s und probiere es dann erneut.\nNutzername und Passwort sind richtig"
+          }
+        }
+      }
+    },
+    "2FA login\n+ Student IDs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA Login\n+ Studentenausweise"
+          }
+        }
+      }
+    },
+    "9:41" : {
+      "shouldTranslate" : false
+    },
+    "18-sc-1030" : {
+      "shouldTranslate" : false
+    },
+    "Additives" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zusatzstoffe"
+          }
+        }
+      }
+    },
+    "Allergens" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergene"
+          }
+        }
+      }
+    },
+    "Allergies" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergien"
+          }
+        }
+      }
+    },
+    "Almonds" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mandeln"
+          }
+        }
+      }
+    },
+    "An unknown error has occurred.\nThis could be due to your internet connection\nUsername and password are probably correct" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein unbekannter Fehler ist aufgetreten.\nEs könnte an deiner Netzverbindung liegen.\nNutzername und Passwort sind wahrscheinlich korrekt."
+          }
+        }
+      }
+    },
+    "Antioxidants" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antioxidationsmittel"
+          }
+        }
+      }
+    },
+    "App Icon" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Icon"
+          }
+        }
+      }
+    },
+    "Application" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewerbung"
+          }
+        }
+      }
+    },
+    "Assessment" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benotung"
+          }
+        }
+      }
+    },
+    "Average" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchschnitt"
+          }
+        }
+      }
+    },
+    "Balance" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guthaben"
+          }
+        }
+      }
+    },
+    "Barley" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerste"
+          }
+        }
+      }
+    },
+    "Basic Login\n+ Timetable, Courses, Exams, etc." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basic Login\n+ Timetable, Courses, Exams, etc."
+          }
+        }
+      }
+    },
+    "Beef" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rind"
+          }
+        }
+      }
+    },
+    "Beer garden" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biergarten"
+          }
+        }
+      }
+    },
+    "Birthdate" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburtstag"
+          }
+        }
+      }
+    },
+    "Bistros" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bistros"
+          }
+        }
+      }
+    },
+    "Blackened" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschwärzt"
+          }
+        }
+      }
+    },
+    "Block: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block: %@"
+          }
+        }
+      }
+    },
+    "Blue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blau"
+          }
+        }
+      }
+    },
+    "Blue-Green" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blaugrün"
+          }
+        }
+      }
+    },
+    "Books" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bücher"
+          }
+        }
+      }
+    },
+    "Brazil nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paranüsse"
+          }
+        }
+      }
+    },
+    "Building..." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebäude…"
+          }
+        }
+      }
+    },
+    "Camera Access Denied" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff auf Kamera wurde abgelehnt"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        }
+      }
+    },
+    "Cancellation Period" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abmeldezeitraum"
+          }
+        }
+      }
+    },
+    "Canteens" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mensen"
+          }
+        }
+      }
+    },
+    "Card Number: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kartennummer: %@"
+          }
+        }
+      }
+    },
+    "Cashew nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cashewnüsse"
+          }
+        }
+      }
+    },
+    "Celery and celery products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sellerie und Sellerieerzeugnisse"
+          }
+        }
+      }
+    },
+    "Change image" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Bild"
+          }
+        }
+      }
+    },
+    "Change username or password" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzernamen oder Password ändern"
+          }
+        }
+      }
+    },
+    "Code for 2FA Option \"**TUPlan**\"" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code für 2FA Option “**TUPlan**”"
+          }
+        }
+      }
+    },
+    "Coffee bars" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaffeebars"
+          }
+        }
+      }
+    },
+    "Coming in a\nfuture update" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kommt in einem\nzukünftigen Update"
+          }
+        }
+      }
+    },
+    "Coming in a future update" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In einem zukünftigen Update"
+          }
+        }
+      }
+    },
+    "Coming soon!" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bald verfügbar!"
+          }
+        }
+      }
+    },
+    "Confirm Logout" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätige Abmeldung"
+          }
+        }
+      }
+    },
+    "Confirm Registration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätige Anmeldung"
+          }
+        }
+      }
+    },
+    "Confirm Unregistration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätige Abmeldung"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        }
+      }
+    },
+    "Continue with 2FA?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter mit 2FA?"
+          }
+        }
+      }
+    },
+    "Couldn't login with TUCaN" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldung mit TUCaN fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "Count" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzahl"
+          }
+        }
+      }
+    },
+    "Course" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurse"
+          }
+        }
+      }
+    },
+    "Course Catalog" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorlesungsverzeichnis"
+          }
+        }
+      }
+    },
+    "Course Tabs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurs Tabs"
+          }
+        }
+      }
+    },
+    "Courses" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurse"
+          }
+        }
+      }
+    },
+    "Crustaceans and crustacean products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krebstiere und Krebstiererzeugnisse"
+          }
+        }
+      }
+    },
+    "Customization" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aussehen"
+          }
+        }
+      }
+    },
+    "Dates" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termine"
+          }
+        }
+      }
+    },
+    "Deadline for audit: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ende Hörer: %@"
+          }
+        }
+      }
+    },
+    "Deadlines" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fristen"
+          }
+        }
+      }
+    },
+    "Debug" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug"
+          }
+        }
+      }
+    },
+    "Default Icon" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard Icon"
+          }
+        }
+      }
+    },
+    "Default Location" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard Location"
+          }
+        }
+      }
+    },
+    "Demo" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demo"
+          }
+        }
+      }
+    },
+    "Demo View" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demo View"
+          }
+        }
+      }
+    },
+    "Description" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beschreibung"
+          }
+        }
+      }
+    },
+    "Deselect All" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Abwählen"
+          }
+        }
+      }
+    },
+    "Detail" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detail"
+          }
+        }
+      }
+    },
+    "Detail View" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detail Ansicht"
+          }
+        }
+      }
+    },
+    "Details" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        }
+      }
+    },
+    "Deutschlandticket" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deutschlandticket"
+          }
+        }
+      }
+    },
+    "Discard" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwerfen"
+          }
+        }
+      }
+    },
+    "Discard Feedback?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback verwerfen?"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "Documents" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumente"
+          }
+        }
+      }
+    },
+    "Donnerstag,  08:00-24:00" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donnerstag, 08:00-24:00"
+          }
+        }
+      }
+    },
+    "Eggs and egg products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eier und Eiererzeugnisse"
+          }
+        }
+      }
+    },
+    "Electives" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahlbereiche"
+          }
+        }
+      }
+    },
+    "End cancellation: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ende Abmeldung: %@"
+          }
+        }
+      }
+    },
+    "End registration: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ende Anmeldung: %@"
+          }
+        }
+      }
+    },
+    "English" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Englisch"
+          }
+        }
+      }
+    },
+    "Enroll a new **TOTP** Token and include \"**TUPlan**\" in its description" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstelle einen neuen **TOTP** Token mit einer Beschreibung, die “**TUPlan**” enthält"
+          }
+        }
+      }
+    },
+    "Enter a different secret" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anderen TOTP Secret eingeben"
+          }
+        }
+      }
+    },
+    "Enter login details" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login Daten eingeben"
+          }
+        }
+      }
+    },
+    "European Student Identifier" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Europäischer Student Identifier"
+          }
+        }
+      }
+    },
+    "Exam Registration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klausuranmeldung"
+          }
+        }
+      }
+    },
+    "Exam Registrations" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klausuranmeldungen"
+          }
+        }
+      }
+    },
+    "Exam Type" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klausurtyp"
+          }
+        }
+      }
+    },
+    "Examination Date" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klausurtermin"
+          }
+        }
+      }
+    },
+    "Examiners" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prüfer"
+          }
+        }
+      }
+    },
+    "Exams" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klausuren"
+          }
+        }
+      }
+    },
+    "External Services" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Externe Dienste"
+          }
+        }
+      }
+    },
+    "Fail\n%lld%%" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N.B.\n%lld%%"
+          }
+        }
+      }
+    },
+    "Feedback" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        }
+      }
+    },
+    "Feedback may only be sent if both taste and price were rated." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback kann nur gesendet werden, wenn Geschmack und Preis bewertet wurden."
+          }
+        }
+      }
+    },
+    "Finish" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden"
+          }
+        }
+      }
+    },
+    "First Name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorname"
+          }
+        }
+      }
+    },
+    "First try the retry button.\n\nIf that didn't work try the following:" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probiere den Login zuerst nochmal.\n\nWenn das nicht funktioniert hat, probiere folgendes:"
+          }
+        }
+      }
+    },
+    "Fish and fish products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fisch und Fischerzeugnisse"
+          }
+        }
+      }
+    },
+    "Flavour enhancer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschmacksverstärker"
+          }
+        }
+      }
+    },
+    "Food" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essen"
+          }
+        }
+      }
+    },
+    "Food colouring" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebensmittelfarbe"
+          }
+        }
+      }
+    },
+    "Food Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essen"
+          }
+        }
+      }
+    },
+    "Food Types" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategorien"
+          }
+        }
+      }
+    },
+    "Forms" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anträge"
+          }
+        }
+      }
+    },
+    "Frequently used" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oft verwendet"
+          }
+        }
+      }
+    },
+    "Funktionale und objektorientierte Programmierkonzepte" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktionale und objektorientierte Programmierkonzepte"
+          }
+        }
+      }
+    },
+    "German" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deutsch"
+          }
+        }
+      }
+    },
+    "Gluten containing grains" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glutenhaltiges Getreide"
+          }
+        }
+      }
+    },
+    "Grade" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note"
+          }
+        }
+      }
+    },
+    "Grade Report" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notenspiegel"
+          }
+        }
+      }
+    },
+    "Gray" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grau"
+          }
+        }
+      }
+    },
+    "Green" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grün"
+          }
+        }
+      }
+    },
+    "Group" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gruppe"
+          }
+        }
+      }
+    },
+    "Groups" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gruppen"
+          }
+        }
+      }
+    },
+    "Guest" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gast"
+          }
+        }
+      }
+    },
+    "Hazelnuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haselnüsse"
+          }
+        }
+      }
+    },
+    "Hello" : {
+      "shouldTranslate" : false
+    },
+    "Hello, world!" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, world!"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, world!"
+          }
+        }
+      }
+    },
+    "Help" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        }
+      }
+    },
+    "hiddenMenuItemsMessage(%lld)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aufgrund deiner Filter wurde %lld Gericht ausgeblendet"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aufgrund deiner Filter wurden %lld Gerichte ausgeblendet"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld dish was hidden by your filters"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld dishes were hidden by your filters"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Home" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studium"
+          }
+        }
+      }
+    },
+    "How did you like it?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie hat's dir geschmeckt?"
+          }
+        }
+      }
+    },
+    "Identity" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identität"
+          }
+        }
+      }
+    },
+    "Identity Cards" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausweise"
+          }
+        }
+      }
+    },
+    "Identity Management" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identitätsmanagement"
+          }
+        }
+      }
+    },
+    "If possible, use a separate device and follow these steps there:" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn möglich, nutze ein separates Gerät und befolge mit diesem folgende Schritte:"
+          }
+        }
+      }
+    },
+    "Image not loaded." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild nicht geladen"
+          }
+        }
+      }
+    },
+    "Incomplete Feedback" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback unvollständig"
+          }
+        }
+      }
+    },
+    "Index: %lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Index: %lld"
+          }
+        }
+      }
+    },
+    "Information" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        }
+      }
+    },
+    "Insect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insekt"
+          }
+        }
+      }
+    },
+    "Invalid I-25 input" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiger I-25 Input"
+          }
+        }
+      }
+    },
+    "Keep" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Behalten"
+          }
+        }
+      }
+    },
+    "Keep Editing" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter bearbeiten"
+          }
+        }
+      }
+    },
+    "Lamb/Sheep" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lamm/Schaf"
+          }
+        }
+      }
+    },
+    "Large" : {
+      "shouldTranslate" : false
+    },
+    "Last charge: %@€" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzte Abbuchung: %@€"
+          }
+        }
+      }
+    },
+    "Last Name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nachname"
+          }
+        }
+      }
+    },
+    "Last Viewed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuletzt betrachtet"
+          }
+        }
+      }
+    },
+    "Last Viewed Canteen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuletzt betrachtete Mensa"
+          }
+        }
+      }
+    },
+    "Library Card" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotheksausweis"
+          }
+        }
+      }
+    },
+    "Light Blue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hellblau"
+          }
+        }
+      }
+    },
+    "Lime" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limette"
+          }
+        }
+      }
+    },
+    "List" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste"
+          }
+        }
+      }
+    },
+    "Listen Now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anhören"
+          }
+        }
+      }
+    },
+    "Loading " : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade "
+          }
+        }
+      }
+    },
+    "Loading today's time slots" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade heutigen Termine"
+          }
+        }
+      }
+    },
+    "Locations" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standorte"
+          }
+        }
+      }
+    },
+    "Log out" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abmelden"
+          }
+        }
+      }
+    },
+    "Log out again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melde dich erneut ab"
+          }
+        }
+      }
+    },
+    "Logged in as Demo User" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angemeldet als Demo Nutzer"
+          }
+        }
+      }
+    },
+    "Logged in as: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angemeldet als: %@"
+          }
+        }
+      }
+    },
+    "Logged in as: %@ (2FA Login)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angemeldet als: %@ (2FA Login)"
+          }
+        }
+      }
+    },
+    "Logged in as: %@ (SSO Login)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angemeldet als: %@ (SSO Login)"
+          }
+        }
+      }
+    },
+    "Logged in as: ULB" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angemeldet als: ULB"
+          }
+        }
+      }
+    },
+    "Logging in with TU ID" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldung mit TU ID"
+          }
+        }
+      }
+    },
+    "Login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden"
+          }
+        }
+      }
+    },
+    "Login again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut anmelden"
+          }
+        }
+      }
+    },
+    "Login failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldung fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "Login for Demo Mode" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login für Demo Modus"
+          }
+        }
+      }
+    },
+    "Login with SSO" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden mit SSO"
+          }
+        }
+      }
+    },
+    "Login with TU ID" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden mit TU ID"
+          }
+        }
+      }
+    },
+    "Login with ULB Account" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden mit ULB Account"
+          }
+        }
+      }
+    },
+    "Login with Username/Password" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden mit Nutzername/Passwort"
+          }
+        }
+      }
+    },
+    "Logout" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abmelden"
+          }
+        }
+      }
+    },
+    "Lupines" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lupine und Lupinerzeugnisse"
+          }
+        }
+      }
+    },
+    "Macadamia nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macadamianüsse"
+          }
+        }
+      }
+    },
+    "Maps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karten"
+          }
+        }
+      }
+    },
+    "Matr. Number" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Matr. Nummer"
+          }
+        }
+      }
+    },
+    "MensaVital" : {
+      "shouldTranslate" : false
+    },
+    "Menu Language" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache für Gerichte"
+          }
+        }
+      }
+    },
+    "Messages" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen"
+          }
+        }
+      }
+    },
+    "Milk and milk products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Milch und Milcherzeugnisse"
+          }
+        }
+      }
+    },
+    "Molluscs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weichtiere (Mollusken)"
+          }
+        }
+      }
+    },
+    "Move Down" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runter"
+          }
+        }
+      }
+    },
+    "Move Up" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoch"
+          }
+        }
+      }
+    },
+    "Mustard and mustard products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senf und Senferzeugnisse"
+          }
+        }
+      }
+    },
+    "Navigate" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Navigiere"
+          }
+        }
+      }
+    },
+    "NavigationTitle" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NavigationsTitel"
+          }
+        }
+      }
+    },
+    "News" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuelles"
+          }
+        }
+      }
+    },
+    "Next Code: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächster Code: %@"
+          }
+        }
+      }
+    },
+    "No allergens or additives listed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Allergene oder Zusatzstoffe gelistet"
+          }
+        }
+      }
+    },
+    "No events today" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Termine heute"
+          }
+        }
+      }
+    },
+    "No image found" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Bild gefunden"
+          }
+        }
+      }
+    },
+    "No Login\nCanteens and Maps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Login\nMensa und Karten"
+          }
+        }
+      }
+    },
+    "Nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schalenfrüchte"
+          }
+        }
+      }
+    },
+    "Oats" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hafer"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "Only press this, once the page says\n\"Token successfully verified\"" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur anklicken, sobald die Seite sagt, dass der Token erfolgreich verifiziert wurde"
+          }
+        }
+      }
+    },
+    "Open 2FA Management and login\n([login.tu-darmstadt.de/2fa](https://login.tu-darmstadt.de/2fa))" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffne 2FA Management und melde dich an\n([login.tu-darmstadt.de/2fa](https://login.tu-darmstadt.de/2fa))"
+          }
+        }
+      }
+    },
+    "Open External Link" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Externen Link öffnen"
+          }
+        }
+      }
+    },
+    "Open Safari (not private/incognito mode) and login to TUCaN" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffne Safari (nicht im Privaten/Incognito Modus) und melde dich bei TUCaN an"
+          }
+        }
+      }
+    },
+    "Opening hours" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnungszeiten"
+          }
+        }
+      }
+    },
+    "Options" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen"
+          }
+        }
+      }
+    },
+    "Or enter code manually" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oder gebe Code manuell ein"
+          }
+        }
+      }
+    },
+    "Orange" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange"
+          }
+        }
+      }
+    },
+    "Orange-Red" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange-Rot"
+          }
+        }
+      }
+    },
+    "Overview" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersicht"
+          }
+        }
+      }
+    },
+    "Pass" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestanden"
+          }
+        }
+      }
+    },
+    "Pass\n%lld%%" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best.\n%lld%%"
+          }
+        }
+      }
+    },
+    "Password" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwort"
+          }
+        }
+      }
+    },
+    "Peanuts and peanut products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erdnüsse und Erdnusserzeugnisse"
+          }
+        }
+      }
+    },
+    "Pecan nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pekannüsse"
+          }
+        }
+      }
+    },
+    "Personal Data" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meine Daten"
+          }
+        }
+      }
+    },
+    "Phase: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phase: %@"
+          }
+        }
+      }
+    },
+    "Phenylalanine" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phenylalaninquelle"
+          }
+        }
+      }
+    },
+    "Phosphates" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phosphat"
+          }
+        }
+      }
+    },
+    "Pink" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pink"
+          }
+        }
+      }
+    },
+    "Pistachio nuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pistazien"
+          }
+        }
+      }
+    },
+    "Please enter this code on the Webpage" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebe diesen Code auf der Webseite ein"
+          }
+        }
+      }
+    },
+    "Plenum" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plenum"
+          }
+        }
+      }
+    },
+    "Pork" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwein"
+          }
+        }
+      }
+    },
+    "Poultry" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geflügel"
+          }
+        }
+      }
+    },
+    "Preservatives" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konservierungsstoffe"
+          }
+        }
+      }
+    },
+    "Press below to activate the camera" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke hier drunter, um die Kamera zu aktivieren"
+          }
+        }
+      }
+    },
+    "Purple" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lila"
+          }
+        }
+      }
+    },
+    "QR generation failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code konnte nicht erstellt werden"
+          }
+        }
+      }
+    },
+    "Red" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rot"
+          }
+        }
+      }
+    },
+    "register" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "anzumelden"
+          }
+        }
+      }
+    },
+    "Register" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmelden"
+          }
+        }
+      }
+    },
+    "Registration Period" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldezeitraum"
+          }
+        }
+      }
+    },
+    "Remove" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernen"
+          }
+        }
+      }
+    },
+    "Remove 2FA Secret?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA Code entfernen?"
+          }
+        }
+      }
+    },
+    "Reset TOTP Secret" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOTP Code zurücksetzen"
+          }
+        }
+      }
+    },
+    "Retry" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        }
+      }
+    },
+    "Rooms" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Räume"
+          }
+        }
+      }
+    },
+    "Row 1" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reihe 1"
+          }
+        }
+      }
+    },
+    "Row 2" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reihe 2"
+          }
+        }
+      }
+    },
+    "Rye" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roggen"
+          }
+        }
+      }
+    },
+    "Scan Card" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karte scannen"
+          }
+        }
+      }
+    },
+    "Scan failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "Scan QR Code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code scannen"
+          }
+        }
+      }
+    },
+    "Search" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen"
+          }
+        }
+      }
+    },
+    "Select" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auswählen"
+          }
+        }
+      }
+    },
+    "Select a canteen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle deine Mensa"
+          }
+        }
+      }
+    },
+    "Select a day" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle einen Tag"
+          }
+        }
+      }
+    },
+    "Select Exams" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle Klausuren"
+          }
+        }
+      }
+    },
+    "Semester" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semester"
+          }
+        }
+      }
+    },
+    "Send Feedback" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback senden"
+          }
+        }
+      }
+    },
+    "Sesame and sesame products" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesamsamen und Sesamsamenerzeugnisse"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen"
+          }
+        }
+      }
+    },
+    "Setup 2FA for TUPlan" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2FA für TUPlan einrichten"
+          }
+        }
+      }
+    },
+    "Show all" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle anzeigen"
+          }
+        }
+      }
+    },
+    "Small" : {
+      "shouldTranslate" : false
+    },
+    "Software-Engineering - Maintenance and Quality Assurance" : {
+      "shouldTranslate" : false
+    },
+    "Something else you'd like to tell us? Please do! We are happy about any feedback." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dir liegt noch etwas anderes auf dem Herzen? Nur zu! Wir freuen uns über jedes Feedback."
+          }
+        }
+      }
+    },
+    "Soybeans" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soja und Sojaerzeugnisse"
+          }
+        }
+      }
+    },
+    "Spelt" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dinkel"
+          }
+        }
+      }
+    },
+    "Start Scan" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan starten"
+          }
+        }
+      }
+    },
+    "Start: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start: %@"
+          }
+        }
+      }
+    },
+    "Status" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        }
+      }
+    },
+    "Student" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Student"
+          }
+        }
+      }
+    },
+    "Student ID" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studentenausweis"
+          }
+        }
+      }
+    },
+    "Student ID %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studentenausweis %@"
+          }
+        }
+      }
+    },
+    "Student IDs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studentenausweise"
+          }
+        }
+      }
+    },
+    "Studies" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Studium"
+          }
+        }
+      }
+    },
+    "Sulfides" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschwefelt"
+          }
+        }
+      }
+    },
+    "Sulfur dioxides and sulfides" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwefeldioxid und Sulfite"
+          }
+        }
+      }
+    },
+    "Sweeteners" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Süßungsmittel"
+          }
+        }
+      }
+    },
+    "Switch Campus" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campus wechseln"
+          }
+        }
+      }
+    },
+    "Switch to Android UI" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wechsel zu Android UI"
+          }
+        }
+      }
+    },
+    "Syncing" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Synchronisiere"
+          }
+        }
+      }
+    },
+    "Test" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test"
+          }
+        }
+      }
+    },
+    "Test2" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test2"
+          }
+        }
+      }
+    },
+    "Testing" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Testen"
+          }
+        }
+      }
+    },
+    "TestView" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TestView"
+          }
+        }
+      }
+    },
+    "The Code you scanned doesn't seem to be a TOTP Code, please try again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der gescannte Code scheint kein TOTP Code zu sein, bitte versuche es erneut"
+          }
+        }
+      }
+    },
+    "There was an error selecting the image, please try again" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bei der Auswahl ist ein Fehler aufgetreten, bitte versuche es erneut"
+          }
+        }
+      }
+    },
+    "This section requires 2FA login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Abschnitt bedarf eines 2FA Logins"
+          }
+        }
+      }
+    },
+    "This section requires TU login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Abschnitt bedarf eines TU Logins"
+          }
+        }
+      }
+    },
+    "Timetable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stundenplan"
+          }
+        }
+      }
+    },
+    "To scan the QR Code, you must enable Camera access for TUPlan in Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es muss in Einstellungen Kamerazugriff für TUPlan erlaubt sein, um einen QR Code scannen zu können"
+          }
+        }
+      }
+    },
+    "TOTP Code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TOTP Code"
+          }
+        }
+      }
+    },
+    "Try again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        }
+      }
+    },
+    "Try the retry button again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probiere den “Erneut versuchen” Knopf nochmal"
+          }
+        }
+      }
+    },
+    "tu id" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tu id"
+          }
+        }
+      }
+    },
+    "TU ID" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TU ID"
+          }
+        }
+      }
+    },
+    "Tu4You" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu4You"
+          }
+        }
+      }
+    },
+    "TUCaN" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TUCaN"
+          }
+        }
+      }
+    },
+    "TUCaN Features" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TUCaN Features"
+          }
+        }
+      }
+    },
+    "TUCaN Login Failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TUCaN Login ist fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "TUCaN Login Failed.\nClick for more info" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TUCaN Login ist fehlgeschlagen.\nKlicke für mehr Info"
+          }
+        }
+      }
+    },
+    "TUDex v%@ build %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "TUDex v%1$@ build %2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Übung S202/D120" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übung S202/D120"
+          }
+        }
+      }
+    },
+    "ULB Account" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ULB Account"
+          }
+        }
+      }
+    },
+    "Uni-Sports" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uni-Sport"
+          }
+        }
+      }
+    },
+    "Unimplemented" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht implementiert"
+          }
+        }
+      }
+    },
+    "Unknown" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        }
+      }
+    },
+    "unregister" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "abzumelden"
+          }
+        }
+      }
+    },
+    "Unregister" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abmelden"
+          }
+        }
+      }
+    },
+    "Up Next" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Nächstes"
+          }
+        }
+      }
+    },
+    "Use Basic Login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutze Basic Login"
+          }
+        }
+      }
+    },
+    "Username" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzername"
+          }
+        }
+      }
+    },
+    "Username or password wasn't accepted" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzername oder Passwort wurde nicht angenommen"
+          }
+        }
+      }
+    },
+    "VALID" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GÜLTIG"
+          }
+        }
+      }
+    },
+    "Valid Until" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gültig bis"
+          }
+        }
+      }
+    },
+    "Veal" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalb"
+          }
+        }
+      }
+    },
+    "Vegan" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vegan"
+          }
+        }
+      }
+    },
+    "Vegetarian" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vegetarisch"
+          }
+        }
+      }
+    },
+    "Venison" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wild"
+          }
+        }
+      }
+    },
+    "View setup guide again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup Anleitung nochmal sehen"
+          }
+        }
+      }
+    },
+    "Walnuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Walnüsse"
+          }
+        }
+      }
+    },
+    "Was the price reasonable?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "War der Preis für dich angemessen?"
+          }
+        }
+      }
+    },
+    "Waxed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewachst"
+          }
+        }
+      }
+    },
+    "Web request failed with Error code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anfrage ist fehlgeschlagen mit Error"
+          }
+        }
+      }
+    },
+    "Wed, 15. Jul. 2026 09:50-11:30" : {
+      "shouldTranslate" : false
+    },
+    "Week" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Woche"
+          }
+        }
+      }
+    },
+    "What are you allergic to?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gegen was bist du allergisch?"
+          }
+        }
+      }
+    },
+    "What do you like to eat?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was isst du gerne?"
+          }
+        }
+      }
+    },
+    "Wheat" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weizen"
+          }
+        }
+      }
+    },
+    "White" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiß"
+          }
+        }
+      }
+    },
+    "Wow" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wow"
+          }
+        }
+      }
+    },
+    "Yellow" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelb"
+          }
+        }
+      }
+    },
+    "You are about to %@ for:\n\n%@ %@\n%@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist dabei dich %1$@ für:\n\n%2$@ %2$@\n%4$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You are about to %1$@ for:\n\n%2$@ %3$@\n%4$@"
+          }
+        }
+      }
+    },
+    "You are about to %@ for:%@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist dabei dich %1$@ für %2$@ "
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You are about to %1$@ for:%2$@"
+          }
+        }
+      }
+    },
+    "You are about to return to overview but haven't sent your feedback yet." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bist dabei zur Übersicht zurückzukehren, hast aber dein Feedback nicht abgesendet."
+          }
+        }
+      }
+    },
+    "You can now press continue below" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst nun weiter klicken"
+          }
+        }
+      }
+    },
+    "You may be asked for permission to use the camera" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du wirst womöglich um Erlaubnis gefragt, die Kamera verwenden zu dürfen"
+          }
+        }
+      }
+    },
+    "You should now see a QR Code,\nkeep the website open" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es sollte ein QR Code sichtbar sein,\nbehalte die Webseite offen"
+          }
+        }
+      }
+    },
+    "Your account details are only used for login with TUDa.\nThey are stored locally and never shared with anyone else.\nLearn more... (no link yet)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Nutzerdaten werden nur zum Login mit der TUDa verwendet. Sie werden local gespeichert und mit niemandem sonst geteilt. Auch nicht mit TUDex Entwicklern.\nErfahre mehr… (noch kein Link)"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
