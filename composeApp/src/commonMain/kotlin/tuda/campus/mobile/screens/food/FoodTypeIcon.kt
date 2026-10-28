@@ -1,5 +1,6 @@
 package tuda.campus.mobile.screens.food
 
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import coil3.compose.AsyncImage
 import tuda.campus.mobile.managers.FoodType
 import tuda.campus.mobile.managers.mensaManager.FoodIcons
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun FoodTypeIcon(
     type: FoodType,

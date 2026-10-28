@@ -4,36 +4,35 @@ android-compileSdk = "37"
 android-minSdk = "24"
 android-targetSdk = "36"
 androidx-activity = "1.13.0"
-androidx-appcompat = "1.7.1"
+androidx-appcompat = "1.8.0"
 androidx-constraintlayout = "2.2.2"
-androidx-core = "1.18.0"
+androidx-core = "1.19.1"
 androidx-espresso = "3.7.0"
-androidx-lifecycle = "2.10.0"
+androidx-lifecycle = "2.11.0"
 androidx-testExt = "1.3.0"
 browser = "1.10.0"
-coilCompose = "3.4.0"
-composeMultiplatform = "1.11.0"
-material3-alpha = "1.11.0-alpha07"      # Needed for Material 3 Expressive
-datastorePreferences = "1.2.1"
-filekitCore = "0.14.1"
+coilCompose = "3.6.3"
+composeMultiplatform = "1.12.2"
+material3-alpha = "1.12.0-alpha03"      # Needed for Material 3 Expressive
+datastorePreferences = "1.3.0"
+filekitCore = "0.16.0"
 korlibs = "6.0.0"
-ktorPersistentCache = "1.1.0"
-mapsCompose = "8.3.0"
-multiplatform-nav3-ui = "1.1.1"
+ktorPersistentCache = "1.2.0"
+mapsCompose = "9.0.1"
+multiplatform-nav3-ui = "1.2.0"
 coroutines = "1.11.0"
 junit = "4.13.2"
-kotlin = "2.3.21"
+kotlin = "2.4.20"
 kotlinxDatetime = "0.8.0"
-kotlinxSerializationJson = "1.11.0"
+kotlinxSerializationJson = "1.12.0"
 ksoup = "0.2.6"
-ktor = "3.5.0"
+ktor = "3.6.0"
 kvault = "1.12.0"
 multiplatformSettings = "1.3.0"
 qrcodeKotlin = "4.5.0"
-skie = "0.10.12"
-versionCatalogUpdate = "1.1.0"
-runtimeLivedata = "1.11.2"
-kotlinStdlib = "2.3.21"
+skie = "0.10.15"
+versionCatalogUpdate = "1.1.2"
+runtimeLivedata = "1.12.1"
 runner = "1.7.0"
 core = "1.7.0"
 
@@ -86,7 +85,7 @@ kvault = { module = "com.liftric:kvault", version.ref = "kvault" }
 maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "mapsCompose" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
-kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 qrcode-kotlin = { module = "io.github.g0dkar:qrcode-kotlin", version.ref = "qrcodeKotlin" }
 
 [plugins]
