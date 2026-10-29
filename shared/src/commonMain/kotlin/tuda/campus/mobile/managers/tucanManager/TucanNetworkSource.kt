@@ -61,26 +61,24 @@ class TucanNetworkSource: TucanDataSource {
         return response
     }
 
-    private fun getSemesters(document: Document): Pair<Semester, List<Semester>> {
-        val semesterSelector = document.getElementById("semester")
+    private fun getSemesters(document: Document): Pair<Semester, List<Semester>>? {
+        val semesterSelector = document.getElementById("semester") ?: return null
         val semesters = mutableListOf<Semester>()       // <Name, ID>
         var currentSemester = Semester("", "")
 
-        semesterSelector?.let {
-            val semesterOptions: Elements = it.select("option")
+        val semesterOptions: Elements = semesterSelector.select("option")
 
-            for (option in semesterOptions) {
-                val id = option.attr("value")
-                val name = option.text()
+        for (option in semesterOptions) {
+            val id = option.attr("value")
+            val name = option.text()
 
-                if (option.attr("selected") == "selected") {
-                    currentSemester = Semester(name, id)
-                }
+            if (option.attr("selected") == "selected") {
+                currentSemester = Semester(name, id)
+            }
 
-                // 999 = All semesters option
-                if (id != "999") {
-                    semesters.add(Semester(name, id))
-                }
+            // 999 = All semesters option
+            if (id != "999") {
+                semesters.add(Semester(name, id))
             }
         }
 
@@ -198,7 +196,7 @@ class TucanNetworkSource: TucanDataSource {
                     ?: return null
             val document: Document = Ksoup.parse(response.bodyAsText())
 
-            val semesterResult = getSemesters(document)
+            val semesterResult = getSemesters(document) ?: return null
             val currentSemester = semesterResult.first
             val semesters = semesterResult.second
 
@@ -456,30 +454,6 @@ class TucanNetworkSource: TucanDataSource {
     }
 
     override suspend fun getExams(): List<List<Exam>>? {
-        fun findExams(document: Document, semesterName: String): List<Exam> {
-            val exams = mutableListOf<Exam>()
-            val tableRows = document.select("table tbody tr")
-
-            // TODO: similar pages show only one column when no exam is present, might be broken
-            for (row in tableRows) {
-                val columns = row.select("td")
-
-                if (columns.isNotEmpty() && columns.size > 1) {
-                    val exam = Exam(
-                        semester = semesterName,
-                        courseID = columns[0].text(),
-                        courseName = columns[1].select("a").text(),     // courseName is inside an <a></a>
-                        examType = columns[2].text(),
-                        examinationDateTime = columns[3].text(),
-                    )
-
-                    exams.add(exam)
-                }
-            }
-
-            return exams
-        }
-
         data class GradeInfo(
             val courseID: String,
             val examNameType: String,
@@ -488,7 +462,34 @@ class TucanNetworkSource: TucanDataSource {
             var gradeSheetArgs: String?
         )
 
-        fun findGrades(document: Document): List<GradeInfo> {
+        fun findExams(document: Document, semesterName: String): List<Exam>? {
+            val exams = mutableListOf<Exam>()
+            val tableRows = document.select("table tbody tr")
+
+            // TODO: similar pages show only one column when no exam is present, might be broken
+            for (row in tableRows) {
+                val columns = row.select("td")
+
+                when {
+                    columns.size <= 1 -> continue
+                    columns.size < 4 -> return null
+                }
+
+                exams.add(
+                    Exam(
+                        semester = semesterName,
+                        courseID = columns[0].text(),
+                        courseName = columns[1].select("a").text(),     // courseName is inside an <a></a>
+                        examType = columns[2].text(),
+                        examinationDateTime = columns[3].text(),
+                    )
+                )
+            }
+
+            return exams
+        }
+
+        fun findGrades(document: Document): List<GradeInfo>? {
             val grades = mutableListOf<GradeInfo>()
             val tableRows = document.select("table tbody tr")
 
@@ -496,8 +497,13 @@ class TucanNetworkSource: TucanDataSource {
             for (row in tableRows) {
                 val columns = row.select("td")
 
-                if (columns.isNotEmpty() && columns.size > 1) {
-                    val gradeInfo = GradeInfo(
+                when {
+                    columns.size <= 1 -> continue
+                    columns.size < 5 -> return null
+                }
+
+                grades.add(
+                    GradeInfo(
                         courseID = columns[0].text().trim().substringBefore(" "),       // ID is together with courseName
                         examNameType = columns[0].text().substringAfter(" "),           // Name and Type are mixed together, this at least removes ID
                         grade = columns[2].text(),
@@ -505,91 +511,84 @@ class TucanNetworkSource: TucanDataSource {
                         gradeSheetArgs = columns[4].select("script").html()   // gives back -N0...0 for grade overview
                             .split(",").getOrNull(3)           // Some exams don't have gradeStats
                     )
-
-                    grades.add(gradeInfo)
-                }
-            }
-
-            return grades
-        }
-
-        suspend fun getGrades(): Map<String, List<GradeInfo>>? {
-            val response: HttpResponse =
-                getPage(true, "EXAMRESULTS", "")
-                    ?: return null
-            val document: Document = Ksoup.parse(response.bodyAsText())
-
-            val semesterResult = getSemesters(document)
-            val currentSemester = semesterResult.first
-            val semesters = semesterResult.second
-
-            val grades = coroutineScope {
-                val deferredFetchedGrades = semesters.map { semester ->
-                    async {
-                        val result = if (semester == currentSemester) {
-                            findGrades(document)
-                        } else {
-                            val asyncResponse =
-                                getPage(true, "EXAMRESULTS", "-N000000,-N${semester.id}")
-                                    ?: return@async null
-                            val asyncDocument: Document = Ksoup.parse(asyncResponse.bodyAsText())
-
-                            findGrades(asyncDocument)        // This is what is being mapped to
-                        }
-
-                        semester.name to result
-                    }
-                }
-
-                val fetchedGrades: Map<String, List<GradeInfo>> = deferredFetchedGrades.awaitAll()
-                    .map { it ?: return@coroutineScope null }
-                    .toMap()
-
-                return@coroutineScope fetchedGrades.filter { it.value.isNotEmpty() }
+                )
             }
 
             return grades
         }
 
         // TODO: this should but may not correctly sort future semesters
-        suspend fun getBasicExamDetails(): Map<String, List<Exam>>? {
+        suspend fun <T> fetchBySemester(
+            pagename: String,
+            parse: (Document, String) -> List<T>?
+        ): Map<String, List<T>>? {
             val response: HttpResponse =
-                getPage(true, "MYEXAMS", "")
+                getPage(true, pagename, "")
                     ?: return null
             val document: Document = Ksoup.parse(response.bodyAsText())
 
-            val semesterResult = getSemesters(document)
+            val semesterResult = getSemesters(document) ?: return null
             val currentSemester = semesterResult.first
             val semesters = semesterResult.second
 
-            val exams = coroutineScope {
-                val deferredFetchedExams = semesters.map { semester ->
+            return coroutineScope {
+                val deferredFetchedResult = semesters.map { semester ->
                     async {
                         val result = if (semester == currentSemester) {
-                            findExams(document, currentSemester.name)
+                            parse(document, currentSemester.name)
                         } else {
                             val asyncResponse =
-                                getPage(true, "MYEXAMS", "-N000000,-N${semester.id}")
+                                getPage(true, pagename, "-N000000,-N${semester.id}")
                                     ?: return@async null
                             val asyncDocument: Document = Ksoup.parse(asyncResponse.bodyAsText())
 
-                            findExams(asyncDocument, semester.name)        // This is what is being mapped to
-                        }
+                            parse(asyncDocument, semester.name)        // This is what is being mapped to
+                        } ?: return@async null
 
                         semester.name to result
                     }
                 }
 
-                val fetchedExams: Map<String, List<Exam>> = deferredFetchedExams.awaitAll()
+                val fetchedResult: Map<String, List<T>> = deferredFetchedResult.awaitAll()
                     .map { it ?: return@coroutineScope null }
                     .toMap()
 
-                val filteredExams = fetchedExams.filter { it.value.isNotEmpty() }
+                return@coroutineScope fetchedResult.filter { it.value.isNotEmpty() }
+            }
+        }
 
-                return@coroutineScope filteredExams
+        suspend fun getGrades(): Map<String, List<GradeInfo>>? {
+            return fetchBySemester("EXAMRESULTS") { document, _ ->
+                findGrades(document)
+            }
+        }
+
+        suspend fun getBasicExamDetails(): Map<String, List<Exam>>? {
+            return fetchBySemester("MYEXAMS") { document, semesterName ->
+                findExams(document, semesterName)
+            }
+        }
+
+        fun findMatchingGrade(exam: Exam, candidates: List<GradeInfo>): GradeInfo? {
+            if (candidates.size == 1) {
+                return candidates.first()
             }
 
-            return exams
+            val byType = candidates.filter {
+                exam.examType.isNotBlank() && it.examNameType.contains(exam.examType)
+            }
+            if (byType.size == 1) {
+                return byType.first()
+            }
+
+            val byName = candidates.filter {
+                exam.courseName.isNotBlank() && it.examNameType.contains(exam.courseName)
+            }
+            if (byName.size == 1) {
+                return byName.first()
+            }
+
+            return byName.firstOrNull { it in byType }
         }
 
         val exams: List<List<Exam>>? = coroutineScope {
@@ -607,22 +606,9 @@ class TucanNetworkSource: TucanDataSource {
 
                     examList.map { exam ->
                         val gradeInfoList = gradeInfoByCourseID[exam.courseID]
-                        val gradeInfo = gradeInfoList
-                            ?.let { candidates ->
-                                if (candidates.size == 1) {
-                                    return@let candidates.first()
-                                } else {
-                                    val byName = candidates.filter { it.examNameType.contains(exam.courseName) }
-                                    val byType = candidates.filter { it.examNameType.contains(exam.examType) }
-                                    if (byType.size == 1) {
-                                        return@let byType.first()
-                                    } else if (byName.size == 1) {
-                                        return@let byName.first()
-                                    } else {
-                                        return@let byName.intersect(byType.toSet()).firstOrNull()
-                                    }
-                                }
-                            }
+                        val gradeInfo = gradeInfoList?.let { candidates ->
+                            findMatchingGrade(exam, candidates)
+                        }
 
                         exam.copy(
                             grade = gradeInfo?.grade ?: "",
@@ -793,7 +779,7 @@ class TucanNetworkSource: TucanDataSource {
                 ?: return null
         val document: Document = Ksoup.parse(response.bodyAsText())
 
-        val semesterResult = getSemesters(document)
+        val semesterResult = getSemesters(document) ?: return null
         val currentSemester = semesterResult.first
         val semesters = semesterResult.second
 

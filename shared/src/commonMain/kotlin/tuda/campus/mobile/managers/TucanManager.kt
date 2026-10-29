@@ -15,18 +15,23 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
 import kotlinx.datetime.toLocalDateTime
 import kotlin.String
-import kotlin.time.ExperimentalTime
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.time.Clock
 
 object TucanManager {
     private var dataSource: TucanDataSource = TucanNetworkSource()
+    private val coroutineScope = CoroutineScope(Dispatchers.Default)
 
     private val _todayTimeSlots = MutableStateFlow<List<TimeSlot>>(emptyList())
     val todayTimeSlots = _todayTimeSlots.asStateFlow()
@@ -34,25 +39,7 @@ object TucanManager {
     private val _timeSlotStatus = MutableStateFlow(RequestStatus.READY)
     val timeSlotStatus = _timeSlotStatus.asStateFlow()
 
-
-    // Supposed to be Pair<locale, day -> dates>
-    private val _datesList = MutableStateFlow<Pair<String, List<List<EventDate>>>?>(null)
-    val datesList = _datesList.asStateFlow()
-
-    private val _dateStatus = MutableStateFlow(RequestStatus.READY)
-    val dateStatus = _dateStatus.asStateFlow()
-
-
-    private val _courses: MutableStateFlow<List<List<List<Course>>>> =
-        dataStore.persistentStateFlow(
-            keyName = "courses",
-            defaultValue = emptyList(),
-            onInitialLoad = {
-                CoroutineScope(Dispatchers.Default).launch {
-                    updateDatesFromCourses(it)
-                }
-            }
-        )
+    private val _courses: MutableStateFlow<List<List<List<Course>>>> = dataStore.persistentStateFlow(keyName = "courses", defaultValue = emptyList())
     val courses = _courses.asStateFlow()
 
     private val _courseStatus = MutableStateFlow(RequestStatus.READY)
@@ -67,14 +54,43 @@ object TucanManager {
     val examStatus = _examStatus.asStateFlow()
 
 
+    // Supposed to be Pair<locale, day -> dates>
+    val datesList: StateFlow<Pair<String, List<List<EventDate>>>?> =
+        combine(_courses, _exams) { courses, exams ->
+            try {
+                calculateDates(courses, exams)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // TODO: Log exception
+                null
+            }
+        }.stateIn(
+            scope = coroutineScope,
+            started = SharingStarted.Eagerly,
+            initialValue = null
+        )
+
+    val dateStatus: StateFlow<RequestStatus> =
+        combine(courseStatus, examStatus) { course, exam ->
+            when {
+                course == RequestStatus.LOADING || exam == RequestStatus.LOADING -> RequestStatus.LOADING
+                course == RequestStatus.FAILED || exam == RequestStatus.FAILED -> RequestStatus.FAILED
+                else -> RequestStatus.READY
+            }
+        }.stateIn(
+            scope = coroutineScope,
+            started = SharingStarted.Eagerly,
+            initialValue = RequestStatus.READY
+        )
+
+
     private val _examRegistrations = MutableStateFlow<List<List<List<ExamRegistration>>>>(emptyList())
     val examRegistrations = _examRegistrations.asStateFlow()
 
     private val _examRegStatus = MutableStateFlow(RequestStatus.READY)
     val examRegStatus = _examRegStatus.asStateFlow()
 
-
-    private val coroutineScope = CoroutineScope(Dispatchers.Default)
 
     // General Functions
 
@@ -95,7 +111,6 @@ object TucanManager {
             dataSource = TucanDummySource()
         }
 
-
         launch { updateTodayTimeSlots() }
         launch { updateExams() }
         launch { updateExamRegistrations() }
@@ -104,16 +119,40 @@ object TucanManager {
 
     fun resetStates() {
         _todayTimeSlots.value = emptyList()
-        _datesList.value = null
         _courses.value = emptyList()
         _exams.value = emptyList()
         _examRegistrations.value = emptyList()
 
         _courseStatus.value = RequestStatus.READY
         _timeSlotStatus.value = RequestStatus.READY
-        _dateStatus.value = RequestStatus.READY
         _examStatus.value = RequestStatus.READY
         _examRegStatus.value = RequestStatus.READY
+    }
+
+    private suspend fun <T : Any> refresh(
+        status: MutableStateFlow<RequestStatus>,
+        fetch: suspend () -> T?,
+        publish: (T) -> Unit
+    ) {
+        status.value = RequestStatus.LOADING
+
+        try {
+            val result = fetch()
+
+            if (result == null) {
+                status.value = RequestStatus.FAILED
+                return
+            }
+
+            publish(result)
+            status.value = RequestStatus.READY
+        } catch (e: CancellationException) {
+            status.value = RequestStatus.FAILED
+            throw e
+        } catch (e: Exception) {
+            // TODO: Log exceptions
+            status.value = RequestStatus.FAILED
+        }
     }
 
 
@@ -123,29 +162,28 @@ object TucanManager {
     // The date must be in the format "dd.mm.yyyy" and day is weekday in full name
     private suspend fun getDaySchedule(date: String, day: String): List<TimeSlot>? = dataSource.getDaySchedule(date, day)
 
-    @OptIn(ExperimentalTime::class)
     suspend fun updateTodayTimeSlots() {
-        _timeSlotStatus.value = RequestStatus.LOADING
+        refresh(
+            status = _timeSlotStatus,
+            fetch = {
+                val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
 
-        val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+                val day = now.day.toString().padStart(2, '0')
+                val month = now.month.number.toString().padStart(2, '0')
+                val year = now.year.toString()
 
-        //val day = now.dayOfMonth.toString().padStart(2, '0')
-        val day = now.day.toString().padStart(2, '0')
-        //val month = now.monthNumber.toString().padStart(2, '0')
-        val month = now.month.number.toString().padStart(2, '0')
-        val year = now.year.toString()
+                val date = "$day.$month.$year"   // "dd.MM.yyyy"
 
-        val date = "$day.$month.$year"   // "dd.MM.yyyy"
+                val weekDay = now.dayOfWeek.name.lowercase().replaceFirstChar { it.uppercase() }
 
-        val weekDay = now.dayOfWeek.name.lowercase().replaceFirstChar { it.uppercase() }
-
-        val potentialTimeSlots = getDaySchedule(date, weekDay) ?: return
-
-        if (potentialTimeSlots != todayTimeSlots) {
-            _todayTimeSlots.value = potentialTimeSlots
-        }
-
-        _timeSlotStatus.value = RequestStatus.READY
+                getDaySchedule(date, weekDay)
+            },
+            publish = { timeSlots ->
+                if (timeSlots != _todayTimeSlots.value) {
+                    _todayTimeSlots.value = timeSlots
+                }
+            }
+        )
     }
 
 
@@ -155,23 +193,19 @@ object TucanManager {
     private suspend fun getCourses(): List<List<List<Course>>>? = dataSource.getCourses(currentCourses = courses.value)
 
     suspend fun updateCourses() {
-        _courseStatus.value = RequestStatus.LOADING
-        _dateStatus.value = RequestStatus.LOADING
-
-        val potentialCourses = getCourses() ?: return
-        _courseStatus.value = RequestStatus.READY
-
-        if (potentialCourses != courses) {
-            _courses.value = potentialCourses
-            updateDatesFromCourses(potentialCourses)
-        }
-
-        _dateStatus.value = RequestStatus.READY
+        refresh(
+            status = _courseStatus,
+            fetch = ::getCourses,
+            publish = { potentialCourses ->
+                if (potentialCourses != _courses.value) {
+                    _courses.value = potentialCourses
+                }
+            }
+        )
     }
 
 
-
-    private fun updateDates(courses: List<List<List<Course>>>, exams: List<List<Exam>>) {
+    private fun calculateDates(courses: List<List<List<Course>>>, exams: List<List<Exam>>): Pair<String, List<List<EventDate>>>? {
         fun detectLocale(date: String): String {
             val germanPrefixes = listOf("Mo,", "Di,", "Mi,", "Do,", "Fr,", "Sa,", "So,")
             val englishPrefixes = listOf("Mon,", "Tue,", "Wed,", "Thu,", "Fri,", "Sat,", "Sun,")
@@ -278,7 +312,7 @@ object TucanManager {
 
                     listOfNotNull(dates, plenaryDates)
                 }
-                ?: return   // If no newest semester exists
+                ?: emptyList()
 
         val examDates: List<EventDate> = exams
             .firstOrNull()
@@ -314,7 +348,7 @@ object TucanManager {
                     return@mapNotNull null
                 }
             }
-            ?: return
+            ?: emptyList()
 
         val groupedExamDates: MutableMap<String, List<EventDate>> = examDates
             .groupBy { it.date }
@@ -355,17 +389,8 @@ object TucanManager {
             }
         }
 
-        _datesList.value = updateDatesList(dates)
+        return updateDatesList(dates)
     }
-
-    private fun updateDatesFromCourses(courses: List<List<List<Course>>>) {
-        updateDates(courses, _exams.value)
-    }
-
-    private fun updateDatesFromExams(exams: List<List<Exam>>) {
-        updateDates(_courses.value, exams)
-    }
-
 
 
     private suspend fun getExams(): List<List<Exam>>? = dataSource.getExams()
@@ -375,22 +400,18 @@ object TucanManager {
     }
 
     suspend fun updateExams() {
-        _examStatus.value = RequestStatus.LOADING
+        refresh(
+            status = _examStatus,
+            fetch = ::getExams,
+            publish = { potentialExams ->
+                val viewedPotentialExam = potentialExams.flatten().find { it.id == _viewedExam.value?.id }
+                viewedPotentialExam?.gradeStats = _viewedExam.value?.gradeStats
 
-        val examsWithStats = _exams.value.flatten().filter { it.gradeStats != null }
-        for (exam in examsWithStats) { exam.gradeStats = null }
-
-        val potentialExams = getExams() ?: return
-
-        val viewedPotentialExam = potentialExams.flatten().find { it.id == _viewedExam.value?.id }
-        viewedPotentialExam?.gradeStats = _viewedExam.value?.gradeStats
-
-        _examStatus.value = RequestStatus.READY
-
-        if (potentialExams != exams.value) {
-            _exams.value = potentialExams
-            updateDatesFromExams(potentialExams)
-        }
+                if (potentialExams != _exams.value) {
+                    _exams.value = potentialExams
+                }
+            }
+        )
     }
 
     suspend fun updateExamGradeStats(exam: Exam) = dataSource.updateExamGradeStats(exam)
@@ -402,10 +423,14 @@ object TucanManager {
 
     // provides additionalInfo but not the vars of ExamRegistration
     suspend fun updateExamRegistrations() {
-        _examRegStatus.value = RequestStatus.LOADING
         _examRegistrations.value = emptyList()
-        _examRegistrations.value = getExamRegistrations() ?: return
-        _examRegStatus.value = RequestStatus.READY
+        refresh(
+            status = _examRegStatus,
+            fetch = ::getExamRegistrations,
+            publish = { registrations ->
+                _examRegistrations.value = registrations
+            }
+        )
     }
 
 
