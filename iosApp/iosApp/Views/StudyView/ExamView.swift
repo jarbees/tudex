@@ -57,8 +57,7 @@ struct ExamView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
-        .navigationTitle("Exams")
-        .navigationTitleAccessory(accessory: { isLarge in
+        .navigationTitleEnhanced("Exams") { isLarge in
             Group {
                 if !tucanService.exams.isEmpty {
                     if (identityService.tuLoginStatus == .mfaUnconfirmed ||
@@ -72,7 +71,7 @@ struct ExamView: View {
                     }
                 }
             }
-        })
+        }
             
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

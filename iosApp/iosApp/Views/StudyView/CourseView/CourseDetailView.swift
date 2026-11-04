@@ -167,7 +167,7 @@ struct CourseDetailView: View {
                 .padding(.horizontal)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitleAdaptive(course.courseName) {
+            .navigationTitleEnhanced(course.courseName, twoLines: true, largeTitle: {
                 VStack {
                     Text("\(course.courseID) - \(course.semester)")
                         .font(.callout)
@@ -186,8 +186,7 @@ struct CourseDetailView: View {
                         view
                     }
                 }
-            }
-            .navigationTitleAccessoryCleanup()
+            })
     
             /*
             List {

@@ -177,8 +177,7 @@ struct StudentIDView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
-        .navigationTitle("Identity Cards")
-        .navigationTitleAccessory(accessory: { isLarge in
+        .navigationTitleEnhanced("Identity Cards", accessory: { isLarge in
             Group {
                 if identityService.studentID != nil {
                     if (identityService.tuLoginStatus == .mfaUnconfirmed ||

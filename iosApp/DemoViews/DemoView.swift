@@ -50,13 +50,13 @@ private struct DemoView2: View {
                     Rectangle()
                         .frame(height: 1000)
                 }
-                .navigationTitle(".")
-                .navigationTitleAccessory {
-                    Text("Small")
-                } large: {
-                    Text("Large")
-                }
-
+                .navigationTitleEnhanced(".", accessory: { isLarge in
+                    if (isLarge) {
+                        Text("Large")
+                    } else {
+                        Text("Small")
+                    }
+                })
             }
         }
     }

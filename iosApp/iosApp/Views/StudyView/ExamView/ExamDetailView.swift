@@ -82,7 +82,7 @@ struct ExamDetailView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitleAdaptive(exam.courseName) {
+        .navigationTitleEnhanced(exam.courseName, twoLines: true, largeTitle: {
             VStack {
                 Text("\(exam.courseID)")
                     .foregroundStyle(.secondary)
@@ -102,8 +102,7 @@ struct ExamDetailView: View {
                     view
                 }
             }
-        }
-        .navigationTitleAccessoryCleanup()
+        })
         .onAppear {
             tucanService.updateViewedExam(exam: exam)
         }

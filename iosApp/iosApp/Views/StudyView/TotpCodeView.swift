@@ -19,8 +19,7 @@ struct TotpCodeView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle("2FA Code")
-        .navigationTitleAccessory(accessory: { isLarge in
+        .navigationTitleEnhanced("2FA Code", accessory: { isLarge in
             Group {
                 if identityService.tuLoginStatus == .mfaUnconfirmed {
                     ProgressView()

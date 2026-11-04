@@ -48,7 +48,6 @@ struct ExamRegisterView: View {
         
         .navigationTitle(examRegHelper.isSelectionMode ? "Select Exams" : "Exam Registration")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitleAccessoryCleanup()
         .navigationBarBackButtonHidden(examRegHelper.isSelectionMode || examRegHelper.isLoading)
         .toolbar((isTabBarShown) ? .visible : .hidden, for: .tabBar)
         .toolbar {

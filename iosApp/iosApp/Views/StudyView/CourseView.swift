@@ -34,8 +34,7 @@ struct CourseView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
-        .navigationTitle("Courses")
-        .navigationTitleAccessory(accessory: { isLarge in
+        .navigationTitleEnhanced("Courses") { isLarge in
             Group {
                 if !tucanService.courses.isEmpty {
                     if (identityService.tuLoginStatus == .mfaUnconfirmed ||
@@ -49,7 +48,7 @@ struct CourseView: View {
                     }
                 }
             }
-        })
+        }
     }
 }
 

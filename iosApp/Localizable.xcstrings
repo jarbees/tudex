@@ -238,7 +238,7 @@
     "9:41" : {
       "shouldTranslate" : false
     },
-    "18-sc-1030" : {
+    "Accessory taps: %lld" : {
       "shouldTranslate" : false
     },
     "Additives" : {
@@ -692,6 +692,9 @@
           }
         }
       }
+    },
+    "count is %lld" : {
+      "shouldTranslate" : false
     },
     "Course" : {
       "localizations" : {
@@ -1513,6 +1516,7 @@
       }
     },
     "Index: %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1991,6 +1995,7 @@
       }
     },
     "Navigate" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2001,6 +2006,7 @@
       }
     },
     "NavigationTitle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2120,6 +2126,9 @@
           }
         }
       }
+    },
+    "Open B" : {
+      "shouldTranslate" : false
     },
     "Open External Link" : {
       "localizations" : {
@@ -2481,6 +2490,9 @@
         }
       }
     },
+    "Row %lld" : {
+      "shouldTranslate" : false
+    },
     "Row 1" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2542,6 +2554,12 @@
           }
         }
       }
+    },
+    "Screen A" : {
+      "shouldTranslate" : false
+    },
+    "Screen B" : {
+      "shouldTranslate" : false
     },
     "Search" : {
       "localizations" : {
@@ -2656,7 +2674,7 @@
     "Small" : {
       "shouldTranslate" : false
     },
-    "Software-Engineering - Maintenance and Quality Assurance" : {
+    "Software" : {
       "shouldTranslate" : false
     },
     "Something else you'd like to tell us? Please do! We are happy about any feedback." : {
@@ -2842,6 +2860,7 @@
       }
     },
     "Test2" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2852,6 +2871,7 @@
       }
     },
     "Testing" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3265,9 +3285,6 @@
           }
         }
       }
-    },
-    "Wed, 15. Jul. 2026 09:50-11:30" : {
-      "shouldTranslate" : false
     },
     "Week" : {
       "localizations" : {

@@ -23,7 +23,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B99700CA2DC9B8D800C7335B /* Exceptions for "iosApp" folder in "iosApp" target */ = {
+		B99700CA2DC9B8D800C7335B /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"App Icons/AppIcon 0 Default.icon",
@@ -52,13 +52,21 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3D53CEFA2ECE2852009A03A8 /* DemoViews */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
 			path = DemoViews;
 			sourceTree = "<group>";
 		};
 		B9DA97B32DC1472C00A4DA20 /* iosApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B99700CA2DC9B8D800C7335B /* Exceptions for "iosApp" folder in "iosApp" target */,
+				B99700CA2DC9B8D800C7335B /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -250,7 +258,7 @@
 /* Begin PBXTargetDependency section */
 		3D5FD9223084A16C001E508C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 3D5FD9213084A16C001E508C /* HybriconsPlugin */;
+			productRef = 3D5FD9213084A16C001E508C /* plugin:HybriconsPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -557,7 +565,7 @@
 			package = 3D53CEF22EC240AC009A03A8 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
 		};
-		3D5FD9213084A16C001E508C /* HybriconsPlugin */ = {
+		3D5FD9213084A16C001E508C /* plugin:HybriconsPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3DC5EBE23083730A00A02033 /* XCRemoteSwiftPackageReference "Hybricons" */;
 			productName = "plugin:HybriconsPlugin";

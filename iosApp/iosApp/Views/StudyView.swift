@@ -77,7 +77,6 @@ struct StudyView: View {
             .scrollIndicators(ScrollIndicatorVisibility.hidden)
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Home")
-            .navigationTitleAccessoryCleanup()
             .navigationBarTitleDisplayMode(.large)
         }
         .transition(.opacity)

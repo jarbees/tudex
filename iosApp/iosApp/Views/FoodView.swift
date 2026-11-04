@@ -127,7 +127,7 @@ struct FoodView: View {
                 .toolbarTitleMenu {
                     MensaPicker(selectedCanteen: mensaService.selectedCanteen)
                 }
-                .navigationTitleAdaptive(shortCanteenName[mensaService.selectedCanteen] ?? String(localized: "Select a canteen")) {
+                .navigationTitleEnhanced(shortCanteenName[mensaService.selectedCanteen] ?? String(localized: "Select a canteen"), largeTitle: {
                     BetterMenu {
                         MensaPicker(selectedCanteen: mensaService.selectedCanteen)
                     } label: {
@@ -158,7 +158,7 @@ struct FoodView: View {
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                }
+                })
                 .toolbar {
                     ToolbarItem {
                         NavigationLinkButton {

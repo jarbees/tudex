@@ -100,7 +100,6 @@ struct TimetableDetailView: View {
         // These are used to add an invisible navigationTitle, so that the back button can label the views
         .navigationTitle(date.courseName)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitleAccessoryCleanup()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("")
