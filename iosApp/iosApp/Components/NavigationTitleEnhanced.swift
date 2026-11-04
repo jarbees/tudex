@@ -5,12 +5,6 @@ import SwiftUIIntrospect
 
 // ACCESSORY HELPERS
 
-private enum TitleTags {
-    static let large = 9797
-    static let inlineVisual = 9798
-    static let inlineInteractive = 9799
-}
-
 @MainActor
 private final class TitleVisibilityObservation: NSObject {
     private var observation: NSKeyValueObservation?
@@ -42,8 +36,7 @@ private final class TitleAccessoryPair {
         horizontal: NSLayoutXAxisAnchor,
         vertical: NSLayoutYAxisAnchor,
         spacing: CGFloat,
-        visualTag: Int,
-        interactiveTag: Int
+        layoutTrailing: NSLayoutXAxisAnchor? = nil
     ) {
         let visualContent = AnyView(
             content
@@ -67,7 +60,8 @@ private final class TitleAccessoryPair {
             updateConstraints(
                 horizontal: horizontal,
                 vertical: vertical,
-                spacing: spacing
+                spacing: spacing,
+                layoutTrailing: layoutTrailing
             )
 
             return
@@ -80,9 +74,6 @@ private final class TitleAccessoryPair {
 
         let visual = visualHost.view!
         let interactive = interactiveHost.view!
-
-        visual.tag = visualTag
-        interactive.tag = interactiveTag
 
         for view in [visual, interactive] {
             view.backgroundColor = .clear
@@ -99,7 +90,8 @@ private final class TitleAccessoryPair {
         updateConstraints(
             horizontal: horizontal,
             vertical: vertical,
-            spacing: spacing
+            spacing: spacing,
+            layoutTrailing: layoutTrailing
         )
 
         visibilityObservation = TitleVisibilityObservation(
@@ -125,7 +117,8 @@ private final class TitleAccessoryPair {
     private func updateConstraints(
         horizontal: NSLayoutXAxisAnchor,
         vertical: NSLayoutYAxisAnchor,
-        spacing: CGFloat
+        spacing: CGFloat,
+        layoutTrailing: NSLayoutXAxisAnchor?
     ) {
         guard let visualHost, let interactiveHost else { return }
 
@@ -143,6 +136,14 @@ private final class TitleAccessoryPair {
             ]
         }
 
+        if let layoutTrailing {
+            constraints.append(
+                visualHost.view.trailingAnchor.constraint(
+                    equalTo: layoutTrailing
+                )
+            )
+        }
+
         NSLayoutConstraint.activate(constraints)
     }
 }
@@ -151,7 +152,7 @@ private final class TitleAccessoryPair {
 private final class TitleAccessoryInstallation {
     private let large = TitleAccessoryPair()
     private let inline = TitleAccessoryPair()
-
+    
     weak var navigationBar: UINavigationBar?
     weak var controller: UIViewController?
 
@@ -167,31 +168,32 @@ private final class TitleAccessoryInstallation {
             visibilitySource: label,
             horizontal: label.trailingAnchor,
             vertical: label.centerYAnchor,
-            spacing: 8,
-            visualTag: TitleTags.large,
-            interactiveTag: TitleTags.large + 1
+            spacing: 8
         )
     }
 
     func attachInline(
         _ content: AnyView,
+        titleControl: UIView,
+        label: UILabel,
         visualParent: UIView,
         interactiveParent: UIView,
-        visibilitySource: UIView? = nil,
-        horizontal: NSLayoutXAxisAnchor,
-        vertical: NSLayoutYAxisAnchor
+        visibilitySource: UIView
     ) {
         inline.attach(
             content,
             visualParent: visualParent,
             interactiveParent: interactiveParent,
-            visibilitySource: visibilitySource ?? visualParent,
-            horizontal: horizontal,
-            vertical: vertical,
+            visibilitySource: visibilitySource,
+            horizontal: label.trailingAnchor,
+            vertical: label.centerYAnchor,
             spacing: 6,
-            visualTag: TitleTags.inlineVisual,
-            interactiveTag: TitleTags.inlineInteractive
+            layoutTrailing: titleControl.trailingAnchor
         )
+    }
+    
+    func removeInline() {
+        inline.remove()
     }
 
     func remove() {
@@ -206,11 +208,9 @@ private final class TitleAccessoryInstallation {
         guard let navigation = activeTitleNavigation(for: controller) else {
             return
         }
-
-        DispatchQueue.main.async { [weak controller] in
-            guard let controller,
-                  activeTitleNavigation(for: controller) === navigation
-            else {
+        
+        func performAttachment() {
+            guard activeTitleNavigation(for: controller) === navigation else {
                 return
             }
 
@@ -220,8 +220,15 @@ private final class TitleAccessoryInstallation {
             self.controller = controller
 
             activateTitleInstallation(self, in: bar)
-
             attach(navigation, bar)
+        }
+
+        if #available(iOS 26.0, *) {
+            performAttachment()
+        } else {
+            DispatchQueue.main.async {
+                performAttachment()
+            }
         }
     }
 }
@@ -332,6 +339,7 @@ private func refreshTitleHitTesting(in navigationBar: UINavigationBar) {
 
 private struct TitleAccessoryLifecycle: UIViewControllerRepresentable {
     let onAppear: () -> Void
+    let onWillDisappear: () -> Void
     let onDisappear: () -> Void
 
     func makeUIViewController(context: Context) -> Observer {
@@ -340,11 +348,13 @@ private struct TitleAccessoryLifecycle: UIViewControllerRepresentable {
 
     func updateUIViewController(_ controller: Observer, context: Context) {
         controller.onAppear = onAppear
+        controller.onWillDisappear = onWillDisappear
         controller.onDisappear = onDisappear
     }
 
     final class Observer: UIViewController {
         var onAppear: (() -> Void)?
+        var onWillDisappear: (() -> Void)?
         var onDisappear: (() -> Void)?
 
         override func loadView() {
@@ -356,6 +366,11 @@ private struct TitleAccessoryLifecycle: UIViewControllerRepresentable {
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
             onAppear?()
+        }
+
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            onWillDisappear?()
         }
 
         override func viewDidDisappear(_ animated: Bool) {
@@ -381,10 +396,12 @@ private struct TitleAccessoryOwner: ViewModifier {
             }
             .background {
                 TitleAccessoryLifecycle {
-                    guard let controller = installation.controller else {
-                        return
-                    }
+                    guard let controller = installation.controller else { return }
                     attach(controller)
+                } onWillDisappear: {
+                    if #available(iOS 26.0, *) {
+                        installation.removeInline()
+                    }
                 } onDisappear: {
                     if let bar = installation.navigationBar {
                         deactivateTitleInstallation(installation, in: bar)
@@ -599,27 +616,21 @@ private struct TitleAccessoryLayer<Accessory: View>: ViewModifier {
                   let container = transition.subviews.first(where: { titleClass($0, contains: "HostedViewContainer") }),
                   let titleWrapper = container.subviews.first(where: { wrapper in
                       wrapper.subviews.contains { titleClass($0, contains: "UINavigationBarTitleControl") }
-                  }) else { return }
-    
-            let subtitle = container.subviews.first(where: { wrapper in
-                wrapper.subviews.contains { titleClass($0, contains: "NavigationBarSubtitleView") }
-            })
-            let vertical = subtitle == nil ? titleWrapper.centerYAnchor : titleWrapper.bottomAnchor
-            let horizontal: NSLayoutXAxisAnchor
-            if let subtitle {
-                let a = titleWrapper.convert(titleWrapper.bounds, to: container).maxX
-                let b = subtitle.convert(subtitle.bounds, to: container).maxX
-                horizontal = a >= b ? titleWrapper.trailingAnchor : subtitle.trailingAnchor
-            } else {
-                horizontal = titleWrapper.trailingAnchor
-            }
-
+                  }),
+                  let titleControl = titleWrapper.subviews.first(where: {
+                      titleClass($0, contains: "UINavigationBarTitleControl")
+                  }),
+                  let label = findSubview(
+                    in: titleControl, ofType: UILabel.self
+                  ) else { return }
+            
             installation.attachInline(
-                AnyView(accessory(false)),
-                visualParent: titleWrapper,
+                AnyView(accessory(false).fixedSize()),
+                titleControl: titleControl,
+                label: label,
+                visualParent: label,
                 interactiveParent: container,
-                horizontal: horizontal,
-                vertical: vertical
+                visibilitySource: titleWrapper
             )
         }
     }
@@ -645,12 +656,9 @@ private struct EnhancedTitleModifier<Accessory: View, LargeTitle: View>: ViewMod
 
     func body(content: Content) -> some View {
         content
-            .modifier(TitleLinesLayer(title: title, enabled: twoLines,
-                                      firstLine: $firstLine, secondLine: $secondLine))
+            .modifier(TitleLinesLayer(title: title, enabled: twoLines, firstLine: $firstLine, secondLine: $secondLine))
             .modifier(CustomLargeTitleLayer(largeTitle: largeTitle, accessory: accessory))
-            .modifier(TitleAccessoryLayer(accessory: accessory,
-                                          customLargeTitle: largeTitle != nil,
-                                          secondLine: secondLine))
+            .modifier(TitleAccessoryLayer(accessory: accessory, customLargeTitle: largeTitle != nil, secondLine: secondLine))
             .onChange(of: title) { _, newTitle in
                 firstLine = newTitle
                 secondLine = ""
@@ -700,26 +708,24 @@ private struct LegacyTitleAccessoryLayer<Accessory: View>: ViewModifier {
                 )
             }
             
-            guard let content = bar.subviews.first(where: { titleClass($0, contains: "NavigationBarContentView") }),
-                  let titleControl = findSubview(in: content, where: {
-                      titleClass($0, contains: "UINavigationBarTitleControl")
-                  }) else { return }
-            
-            guard let titleLabel = findSubview(in: titleControl, ofType: UILabel.self) else {
-                return
-            }
-            
-            guard let visibilityWrapper = titleLabel.superview else {
-                return
-            }
+            guard let content = bar.subviews.first(where: {
+                    titleClass($0, contains: "NavigationBarContentView")
+                }),
+                let titleControl = findSubview(in: content, where: {
+                    titleClass($0, contains: "UINavigationBarTitleControl")
+                }),
+                let label = findSubview(in: titleControl, ofType: UILabel.self),
+                let visibilityWrapper = label.superview else {
+                    return
+                }
             
             installation.attachInline(
-                AnyView(accessory(false)),
-                visualParent: titleLabel,
+                AnyView(accessory(false).fixedSize()),
+                titleControl: titleControl,
+                label: label,
+                visualParent: label,
                 interactiveParent: content,
-                visibilitySource: visibilityWrapper,
-                horizontal: titleControl.trailingAnchor,
-                vertical: titleControl.centerYAnchor
+                visibilitySource: visibilityWrapper
             )
         }
     }
@@ -1000,6 +1006,8 @@ private struct ScreenA: View {
                 ScrollView {
                     Text("Screen B")
                     Text("count is \(count)")
+                    Rectangle()
+                        .frame(height: 1000)
                 }
                 .navigationTitleEnhanced("Screen B") { _ in
                     Button(action: {
@@ -1008,10 +1016,15 @@ private struct ScreenA: View {
                         Image(systemName: "star.fill")
                     })
                 }
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Text("Verylongnavi")
+                    }
+                }
             }
             .navigationTitle("Screen A")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             
             Text("count is \(count)")
         }
@@ -1020,4 +1033,17 @@ private struct ScreenA: View {
 
 #Preview("NavigationCheck") {
     ScreenA()
+}
+
+
+#Preview("Two lines") {
+    NavigationStack {
+        VStack {
+            Text("Test")
+        }
+        .navigationTitleEnhanced("Software-Engineering - Wartung und Qualitätssicherung", twoLines: true, accessory: { isLarge in
+            Image(systemSymbol: .star)
+        })
+        .navigationBarTitleDisplayMode(.inline)
+    }
 }
