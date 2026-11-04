@@ -293,4 +293,8 @@
     <!--StatusScreen-->
     <string name="loadingItemName">Loading %1$s</string>
     <string name="thisSectionRequires2faLogin">This section requires 2FA Login</string>
+    <string name="refreshFailed">Refresh failed</string>
+    <string name="itemNotLoaded">%1$s couldn't be loaded</string>
+    <string name="loadingItemFailed">Loading %1$s failed</string>
+    <string name="noItemToDisplay">No %1$s to display</string>
 </resources>

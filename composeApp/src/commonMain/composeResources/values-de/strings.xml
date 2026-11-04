@@ -289,4 +289,12 @@
     <string name="webRequestFailedWithError">Anfrage ist fehlgeschlagen mit Error </string>
     <string name="resetTotpSecret">TOTP Code zurücksetzen</string>
     <string name="enterLoginDetails">Login Daten eingeben</string>
+
+    <!--StatusScreen-->
+    <string name="loadingItemName">Lade %1$s</string>
+    <string name="thisSectionRequires2faLogin">Dieser Abschnitt benötigt 2FA Login</string>
+    <string name="refreshFailed">Aktualisierung fehlgeschlagen</string>
+    <string name="itemNotLoaded">%1$s konnten nicht geladen werden</string>
+    <string name="loadingItemFailed">%1$s konnten nicht geladen werden</string>
+    <string name="noItemToDisplay">Keine %1$s zu sehen</string>
 </resources>

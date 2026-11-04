@@ -20,17 +20,29 @@ struct TimetableView: View {
     let cal = Calendar.current
     
     var body: some View {
+        let month = dateFormatter.string(from: cal.date(byAdding: .day, value: selectedDateOffset, to: Date())!)
+        
+        let navTitle = if settingsService.timeViewType == .list {
+            if (identityService.tuLoginStatus == .mfaUnconfirmed ||
+                identityService.tuLoginStatus == .ssoUnconfirmed ||
+                tucanService.dateStatus == .loading
+            ) {
+                "Syncing"
+            } else {
+                // Using "" instead of " " breaks
+                " "
+            }
+        } else {
+            "\(month)"
+        }
+        
         VStack {
             if (tucanService.datesListSortedWrapper == nil) {
-                if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                    identityService.tuLoginStatus == .ssoUnconfirmed
-                ) {
-                    LoginLoadingView()
-                } else if tucanService.dateStatus == .loading {
-                    RequestLoadingView(itemName: "Dates")
-                } else {
-                    EmptyView()
-                }
+                ContentStatusView(
+                    status: tucanService.dateStatus,
+                    itemName: "Dates",
+                    refresh: refreshDates
+                )
             } else if settingsService.timeViewType == .week {
                 TimeBodyView(selectedDateOffset: $selectedDateOffset)
                     // Using safeAreaInset instead of VStack alignes ScrollViews indicator properly
@@ -57,30 +69,15 @@ struct TimetableView: View {
         .frame(maxWidth: .infinity)         // Fixes navigationTitle appearing too late
         .animation(.default.speed(2), value: settingsService.timeViewType)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Timetable")
+        .navigationLoadingTitle(
+            title: "\(navTitle)",
+            itemStatus: tucanService.dateStatus,
+            itemIsEmpty: tucanService.datesListSortedWrapper == nil,
+            itemName: "Dates",
+            refreshAction: refreshDates
+        )
         // Accessory can't be seen in iOS 26, because inline title loads too late
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                let month = dateFormatter.string(from: cal.date(byAdding: .day, value: selectedDateOffset, to: Date())!)
-                
-                HStack(spacing: 4) {
-                    Text(settingsService.timeViewType == .list ? " " : "\(month)")     // Using "" instead of " " breaks
-                    
-                    if tucanService.datesListSortedWrapper != nil {
-                        if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                            identityService.tuLoginStatus == .ssoUnconfirmed ||
-                            tucanService.dateStatus == .loading
-                        ) {
-                            if settingsService.timeViewType == .list {
-                                Text("Syncing")
-                            }
-                            ProgressView()
-                                .padding(.top, 2)
-                        }
-                    }
-                }
-            }
-            
             ToolbarItem {
                 let pickerBinding = Binding(
                     get: { settingsService.timeViewType },
@@ -114,6 +111,19 @@ struct TimetableView: View {
         return Int(
             floor(Double(dateOffset - diffToMonday) / 7)
         )
+    }
+    
+    private func refreshDates() async {
+        Task {
+            if tucanService.examStatus == .failed {
+                await tucanService.updateExams()
+            }
+        }
+        Task {
+            if tucanService.courseStatus == .failed {
+                await tucanService.updateCourses()
+            }
+        }
     }
     
     static func getDateFormatter(locale: String) -> DateFormatter? {

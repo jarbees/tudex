@@ -48,19 +48,16 @@ import tuda.campus.mobile.ExamRegisterDetail
 import tuda.campus.mobile.components.BigButton
 import tuda.campus.mobile.components.ExpandableListSection
 import tuda.campus.mobile.components.HeaderText
-import tuda.campus.mobile.components.LoginLoadingScreen
-import tuda.campus.mobile.components.RequestLoadingScreen
 import tuda.campus.mobile.components.SmallNavTitle
 import tuda.campus.mobile.managers.tucanManager.ExamRegistration
 import tuda.campus.mobile.managers.IdentityManager
 import tuda.campus.mobile.managers.tucanManager.RegistrationOption
-import tuda.campus.mobile.managers.tucanManager.RequestStatus
-import tuda.campus.mobile.managers.TULoginState
 import tuda.campus.mobile.managers.TucanManager
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import tuda.campus.mobile.components.ContentStatusScreen
 import tudex.composeapp.generated.resources.Res
 import tudex.composeapp.generated.resources.cancel
 import tudex.composeapp.generated.resources.confirmRegistration
@@ -180,15 +177,13 @@ fun ExamRegisterScreen(
             }
         }
     ) {
-        if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED) {
-            LoginLoadingScreen()
-        } else if (examRegStatus == RequestStatus.LOADING && examRegistrations.isEmpty()) {
-            Column {
-                RequestLoadingScreen(
-                    itemName = stringResource(Res.string.examRegistrations),
-                    modifier = modifier.weight(1f)
-                )
-            }
+        if (examRegistrations.isEmpty()) {
+            ContentStatusScreen(
+                loginStatus = tuLoginStatus,
+                itemStatus = examRegStatus,
+                itemName = stringResource(Res.string.examRegistrations),
+                refresh = TucanManager::updateExamRegistrations,
+            )
         } else {
             Box(
                 modifier = Modifier.fillMaxSize()

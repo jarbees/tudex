@@ -3,10 +3,8 @@ package tuda.campus.mobile.screens.study
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,7 +12,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
@@ -35,15 +32,14 @@ import androidx.navigation3.runtime.NavKey
 import tuda.campus.mobile.CourseDetail
 import tuda.campus.mobile.components.ExpandableListSection
 import tuda.campus.mobile.components.HeaderText
-import tuda.campus.mobile.components.LoginLoadingScreen
 import tuda.campus.mobile.components.MediumNavTitle
-import tuda.campus.mobile.components.RequestLoadingScreen
 import tuda.campus.mobile.managers.IdentityManager
-import tuda.campus.mobile.managers.tucanManager.RequestStatus
 import tuda.campus.mobile.managers.TULoginState
 import tuda.campus.mobile.managers.TucanManager
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
+import tuda.campus.mobile.components.ContentStatusScreen
+import tuda.campus.mobile.components.NavLoadingComponent
 import tudex.composeapp.generated.resources.Res
 import tudex.composeapp.generated.resources.courses
 
@@ -83,33 +79,24 @@ fun CourseScreen(
     ) {
         MediumNavTitle(
             titleComp = {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(Res.string.courses))
-                    if (courses.isNotEmpty()) {
-                        if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                            tuLoginStatus == TULoginState.SSO_UNCONFIRMED ||
-                            courseStatus == RequestStatus.LOADING
-                        ) {
-                            LoadingIndicator(modifier = Modifier.size(32.dp))
-                        }
-                    }
-                }
+                NavLoadingComponent(
+                    title = stringResource(Res.string.courses),
+                    loginStatus = tuLoginStatus,
+                    itemStatus = courseStatus,
+                    itemName = stringResource(Res.string.courses),
+                    isItemEmpty = courses.isEmpty(),
+                    refresh = TucanManager::updateCourses,
+                )
             },
             backAction = backAction
         ) {
             if (courses.isEmpty()) {
-                if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                    tuLoginStatus == TULoginState.SSO_UNCONFIRMED
-                ) {
-                    LoginLoadingScreen()
-                } else if (courseStatus == RequestStatus.LOADING) {
-                    Column {
-                        RequestLoadingScreen(
-                            itemName = stringResource(Res.string.courses),
-                            modifier = modifier.weight(1f)
-                        )
-                    }
-                }
+                ContentStatusScreen(
+                    loginStatus = tuLoginStatus,
+                    itemStatus = courseStatus,
+                    itemName = stringResource(Res.string.courses),
+                    refresh = TucanManager::updateCourses,
+                )
             } else {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(8.dp),

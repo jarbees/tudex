@@ -29,15 +29,7 @@ struct StudentIDView: View {
     var body: some View {
         ZStack {
             if (identityService.studentID == nil) {
-                if (identityService.tuLoginStatus == .mfaUnconfirmed) {
-                    LoginLoadingView()
-                } else if (identityService.tuLoginStatus != .mfa) {
-                    LoginLockedView()
-                } else if identityService.studentIDStatus == .loading && identityService.studentID == nil {
-                    RequestLoadingView(itemName: "Student IDs")
-                } else {
-                    EmptyView()
-                }
+                ContentStatusView(status: identityService.studentIDStatus, itemName: "Student IDs", refresh: identityService.updateStudentID)
             } else {
                 RefreshableScrollView(action: {
                     Task {
@@ -177,20 +169,13 @@ struct StudentIDView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
-        .navigationTitleEnhanced("Identity Cards", accessory: { isLarge in
-            Group {
-                if identityService.studentID != nil {
-                    if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                        identityService.studentIDStatus == .loading
-                    ) {
-                        ProgressView()
-                            .scaleEffect(isLarge ? 1.2 : 1)
-                            .padding(.top, isLarge ? 0 : 2)
-                            .padding(.leading, isLarge ? 8 : 4)
-                    }
-                }
-            }
-        })
+        .navigationLoadingTitle(
+            title: "Identity Cards",
+            itemStatus: identityService.studentIDStatus,
+            itemIsEmpty: identityService.studentID == nil,
+            itemName: "Identity Cards",
+            refreshAction: identityService.updateStudentID
+        )
     }
 }
 

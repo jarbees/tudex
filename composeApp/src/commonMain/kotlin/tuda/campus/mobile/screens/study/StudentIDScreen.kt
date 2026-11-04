@@ -13,12 +13,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,18 +30,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import tuda.campus.mobile.PlatformImage
-import tuda.campus.mobile.components.LoginLoadingScreen
-import tuda.campus.mobile.components.LoginLockedScreen
 import tuda.campus.mobile.components.MediumNavTitle
-import tuda.campus.mobile.components.RequestLoadingScreen
 import tuda.campus.mobile.managers.IdentityManager
-import tuda.campus.mobile.managers.tucanManager.RequestStatus
-import tuda.campus.mobile.managers.TULoginState
 import tuda.campus.mobile.platformImageFromInterleaved25
 import org.jetbrains.compose.resources.decodeToImageBitmap
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import qrcode.QRCode
+import tuda.campus.mobile.components.ContentStatusScreen
+import tuda.campus.mobile.components.NavLoadingComponent
 import tudex.composeapp.generated.resources.Res
 import tudex.composeapp.generated.resources.cardNumberIs
 import tudex.composeapp.generated.resources.errorLoadingBarcode
@@ -55,7 +49,6 @@ import tudex.composeapp.generated.resources.invalidI25Input
 import tudex.composeapp.generated.resources.libraryCard
 import tudex.composeapp.generated.resources.ulb_logo
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun StudentIDScreen(
     backAction: () -> Unit
@@ -76,27 +69,24 @@ fun StudentIDScreen(
 
     MediumNavTitle(
         titleComp = {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(stringResource(Res.string.identityCards))
-                if (studentID != null) {
-                    if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                        studentIDStatus == RequestStatus.LOADING
-                    ) {
-                        LoadingIndicator(modifier = Modifier.size(32.dp))
-                    }
-                }
-            }
+            NavLoadingComponent(
+                title = stringResource(Res.string.identityCards),
+                loginStatus = tuLoginStatus,
+                itemStatus = studentIDStatus,
+                itemName = stringResource(Res.string.identityCards),
+                isItemEmpty = studentID == null,
+                refresh = IdentityManager::updateStudentID,
+            )
         },
         backAction = backAction
     ) {
         if (studentID == null) {
-            if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED) {
-                LoginLoadingScreen()
-            } else if (tuLoginStatus != TULoginState.MFA && tuLoginStatus != TULoginState.MFA_TUCAN_ERROR) {
-                LoginLockedScreen(modifier = Modifier.padding(horizontal = 16.dp))
-            } else if (studentIDStatus == RequestStatus.LOADING) {
-                RequestLoadingScreen(stringResource(Res.string.identityCards))
-            }
+            ContentStatusScreen(
+                loginStatus = tuLoginStatus,
+                itemStatus = studentIDStatus,
+                itemName = stringResource(Res.string.identityCards),
+                refresh = IdentityManager::updateStudentID,
+            )
         } else {
             HorizontalPager(state = pagerState) { page ->
                 val pageName = pages[page]

@@ -14,10 +14,12 @@ struct ExamRegisterView: View {
 
     var body: some View {
         Group {
-            if (identityService.tuLoginStatus == .mfaUnconfirmed) {
-                LoginLoadingView()
-            } else if tucanService.examRegStatus == .loading && tucanService.examRegistrations.isEmpty {
-                RequestLoadingView(itemName: "Exam Registrations")
+            if (tucanService.examRegistrations.isEmpty) {
+                ContentStatusView(
+                    status: tucanService.examRegStatus,
+                    itemName: "Exam Registrations",
+                    refresh: tucanService.updateExamRegistrations
+                )
             } else {
                 RefreshableScrollView(action: {
                     await tucanService.updateExamRegistrations()

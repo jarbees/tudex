@@ -6,21 +6,12 @@ import Shared
 
 struct CourseView: View {
     @EnvironmentObject var tucanService: TucanService
-    @EnvironmentObject var identityService: IdentityService
     @State private var offset: CGFloat = 0
     
     var body: some View {
         Group {
             if (tucanService.courses.isEmpty) {
-                if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                    identityService.tuLoginStatus == .ssoUnconfirmed
-                ) {
-                    LoginLoadingView()
-                } else if tucanService.courseStatus == .loading {
-                    RequestLoadingView(itemName: "Courses")
-                } else {
-                    EmptyView()
-                }
+                ContentStatusView(status: tucanService.courseStatus, itemName: "Courses", refresh: tucanService.updateCourses)
             } else {
                 RefreshableScrollView (
                     action: {
@@ -34,21 +25,13 @@ struct CourseView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
-        .navigationTitleEnhanced("Courses") { isLarge in
-            Group {
-                if !tucanService.courses.isEmpty {
-                    if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                        identityService.tuLoginStatus == .ssoUnconfirmed ||
-                        tucanService.courseStatus == .loading
-                    ) {
-                        ProgressView()
-                            .scaleEffect(isLarge ? 1.2 : 1)
-                            .padding(.top, isLarge ? 0 : 2)
-                            .padding(.leading, isLarge ? 8 : 4)
-                    }
-                }
-            }
-        }
+        .navigationLoadingTitle(
+            title: "Courses",
+            itemStatus: tucanService.courseStatus,
+            itemIsEmpty: tucanService.courses.isEmpty,
+            itemName: "Courses",
+            refreshAction: tucanService.updateCourses
+        )
     }
 }
 

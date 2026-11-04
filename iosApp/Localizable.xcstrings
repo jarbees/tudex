@@ -14,9 +14,6 @@
         }
       }
     },
-    " " : {
-      "shouldTranslate" : false
-    },
     "  1." : {
       "shouldTranslate" : false
     },
@@ -117,6 +114,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ (2FA Login, TUCaN kaputt)"
+          }
+        }
+      }
+    },
+    "%@ couldn't be loaded." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ konnten nicht geladen werden"
           }
         }
       }
@@ -1690,6 +1697,16 @@
         }
       }
     },
+    "Loading %@ failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ konnten nicht geladen werden"
+          }
+        }
+      }
+    },
     "Loading today's time slots" : {
       "localizations" : {
         "de" : {
@@ -2032,6 +2049,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nächster Code: %@"
+          }
+        }
+      }
+    },
+    "No %@ to display" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine %@ zu sehen"
           }
         }
       }
@@ -2406,6 +2433,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rot"
+          }
+        }
+      }
+    },
+    "Refresh failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisierung fehlgeschlagen"
           }
         }
       }
@@ -2840,6 +2877,7 @@
       }
     },
     "Syncing" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3235,6 +3273,9 @@
           }
         }
       }
+    },
+    "Verylongnavi" : {
+      "shouldTranslate" : false
     },
     "View setup guide again" : {
       "localizations" : {

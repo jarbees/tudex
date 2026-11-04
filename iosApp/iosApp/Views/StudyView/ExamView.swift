@@ -6,21 +6,12 @@ import SFSafeSymbols
 
 struct ExamView: View {
     @EnvironmentObject var tucanService: TucanService
-    @EnvironmentObject var identityService: IdentityService
     @State private var isNavigating: Bool = false
     
     var body: some View {
         Group {
             if (tucanService.exams.isEmpty) {
-                if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                    identityService.tuLoginStatus == .ssoUnconfirmed
-                ) {
-                    LoginLoadingView()
-                } else if tucanService.examStatus == .loading {
-                    RequestLoadingView(itemName: "Exams")
-                } else {
-                    EmptyView()
-                }
+                ContentStatusView(status: tucanService.examStatus, itemName: "Exams", refresh: tucanService.updateExams)
             } else {
                 RefreshableScrollView (
                     action: {
@@ -57,21 +48,13 @@ struct ExamView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
-        .navigationTitleEnhanced("Exams") { isLarge in
-            Group {
-                if !tucanService.exams.isEmpty {
-                    if (identityService.tuLoginStatus == .mfaUnconfirmed ||
-                        identityService.tuLoginStatus == .ssoUnconfirmed ||
-                        tucanService.examStatus == .loading
-                    ) {
-                        ProgressView()
-                            .scaleEffect(isLarge ? 1.2 : 1)
-                            .padding(.top, isLarge ? 0 : 2)
-                            .padding(.leading, isLarge ? 8 : 4)
-                    }
-                }
-            }
-        }
+        .navigationLoadingTitle(
+            title: "Exams",
+            itemStatus: tucanService.examStatus,
+            itemIsEmpty: tucanService.exams.isEmpty,
+            itemName: "Exams",
+            refreshAction: tucanService.updateExams
+        )
             
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

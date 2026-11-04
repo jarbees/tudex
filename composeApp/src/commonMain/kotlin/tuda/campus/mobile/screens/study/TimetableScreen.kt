@@ -38,7 +38,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
-import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuDefaults
@@ -75,19 +74,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation3.runtime.NavKey
+import kotlinx.coroutines.coroutineScope
 import tuda.campus.mobile.TimetableDetail
-import tuda.campus.mobile.components.LoginLoadingScreen
-import tuda.campus.mobile.components.RequestLoadingScreen
 import tuda.campus.mobile.components.SmallNavTitle
 import tuda.campus.mobile.managers.tucanManager.EventDate
 import tuda.campus.mobile.managers.tucanManager.EventDate.CourseDate
 import tuda.campus.mobile.managers.IdentityManager
 import tuda.campus.mobile.managers.tucanManager.RequestStatus
 import tuda.campus.mobile.managers.SettingsManager
-import tuda.campus.mobile.managers.TULoginState
 import tuda.campus.mobile.managers.TimeViewType
 import tuda.campus.mobile.managers.TucanManager
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.Month
@@ -101,6 +99,8 @@ import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import tuda.campus.mobile.components.ContentStatusScreen
+import tuda.campus.mobile.components.NavLoadingComponent
 import tudex.composeapp.generated.resources.Res
 import tudex.composeapp.generated.resources.dates
 import tudex.composeapp.generated.resources.ic_calendar_view_day_24px
@@ -131,6 +131,8 @@ fun TimetableScreen(
 
     val courses by TucanManager.courses.collectAsStateWithLifecycle()
     val courseStatus by TucanManager.courseStatus.collectAsStateWithLifecycle()
+
+    val examStatus by TucanManager.examStatus.collectAsStateWithLifecycle()
 
     var dropDownExpanded by remember { mutableStateOf(false) }
     val viewType by SettingsManager.timeViewType.collectAsStateWithLifecycle()
@@ -169,17 +171,23 @@ fun TimetableScreen(
 
     SmallNavTitle(
         titleComp = {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(navTitle)
-                if (courses.isNotEmpty()) {
-                    if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                        tuLoginStatus == TULoginState.SSO_UNCONFIRMED ||
-                        courseStatus == RequestStatus.LOADING
-                    ) {
-                        LoadingIndicator(modifier = Modifier.size(32.dp))
+            NavLoadingComponent(
+                title = navTitle,
+                loginStatus = tuLoginStatus,
+                itemStatus = dateStatus,
+                itemName = stringResource(Res.string.dates),
+                isItemEmpty = datesList == null,
+                refresh = {
+                    coroutineScope {
+                        if (examStatus == RequestStatus.FAILED) {
+                            launch { TucanManager.updateExams() }
+                        }
+                        if (courseStatus == RequestStatus.FAILED) {
+                            launch { TucanManager.updateCourses() }
+                        }
                     }
-                }
-            }
+                },
+            )
         },
         backAction = backAction,
         actions = {
@@ -260,18 +268,21 @@ fun TimetableScreen(
         }
     ) {
         if (datesList == null) {
-            if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                tuLoginStatus == TULoginState.SSO_UNCONFIRMED
-            ) {
-                LoginLoadingScreen()
-            } else if (dateStatus == RequestStatus.LOADING) {
-                Column {
-                    RequestLoadingScreen(
-                        itemName = stringResource(Res.string.dates),
-                        modifier = modifier.weight(1f)
-                    )
-                }
-            }
+            ContentStatusScreen(
+                loginStatus = tuLoginStatus,
+                itemStatus = dateStatus,
+                itemName = stringResource(Res.string.dates),
+                refresh = {
+                    coroutineScope {
+                        if (examStatus == RequestStatus.FAILED) {
+                            launch { TucanManager.updateExams() }
+                        }
+                        if (courseStatus == RequestStatus.FAILED) {
+                            launch { TucanManager.updateCourses() }
+                        }
+                    }
+                },
+            )
         } else if (viewType == TimeViewType.WEEK) {
             datesList?.let { datesList ->
                 TimetableWeek(

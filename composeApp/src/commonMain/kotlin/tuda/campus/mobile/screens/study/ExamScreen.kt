@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -39,16 +38,15 @@ import tuda.campus.mobile.ExamDetail
 import tuda.campus.mobile.ExamRegister
 import tuda.campus.mobile.components.CustomList
 import tuda.campus.mobile.components.HeaderText
-import tuda.campus.mobile.components.LoginLoadingScreen
 import tuda.campus.mobile.components.MediumNavTitle
-import tuda.campus.mobile.components.RequestLoadingScreen
 import tuda.campus.mobile.managers.IdentityManager
-import tuda.campus.mobile.managers.tucanManager.RequestStatus
 import tuda.campus.mobile.managers.TULoginState
 import tuda.campus.mobile.managers.TucanManager
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import tuda.campus.mobile.components.ContentStatusScreen
+import tuda.campus.mobile.components.NavLoadingComponent
 import tudex.composeapp.generated.resources.Res
 import tudex.composeapp.generated.resources.exams
 import tudex.composeapp.generated.resources.ic_fail_badge_fill_24px
@@ -103,17 +101,14 @@ fun ExamScreen(
     ) {
         MediumNavTitle(
             titleComp = {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(Res.string.exams))
-                    if (exams.isNotEmpty()) {
-                        if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                            tuLoginStatus == TULoginState.SSO_UNCONFIRMED ||
-                            examStatus == RequestStatus.LOADING
-                        ) {
-                            LoadingIndicator(modifier = Modifier.size(32.dp))
-                        }
-                    }
-                }
+                NavLoadingComponent(
+                    title = stringResource(Res.string.exams),
+                    loginStatus = tuLoginStatus,
+                    itemStatus = examStatus,
+                    itemName = stringResource(Res.string.exams),
+                    isItemEmpty = exams.isEmpty(),
+                    refresh = TucanManager::updateExams,
+                )
             },
             backAction = navigateBack,
             actions = {
@@ -129,18 +124,12 @@ fun ExamScreen(
             }
         ) {
             if (exams.isEmpty()) {
-                if (tuLoginStatus == TULoginState.MFA_UNCONFIRMED ||
-                    tuLoginStatus == TULoginState.SSO_UNCONFIRMED
-                ) {
-                    LoginLoadingScreen()
-                } else if (examStatus == RequestStatus.LOADING) {
-                    Column {
-                        RequestLoadingScreen(
-                            itemName = stringResource(Res.string.exams),
-                            modifier = modifier.weight(1f)
-                        )
-                    }
-                }
+                ContentStatusScreen(
+                    loginStatus = tuLoginStatus,
+                    itemStatus = examStatus,
+                    itemName = stringResource(Res.string.exams),
+                    refresh = TucanManager::updateExams,
+                )
             } else {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
